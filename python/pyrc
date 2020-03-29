@@ -1,0 +1,20 @@
+import os
+import readline
+import atexit
+import rlcompleter
+
+
+dir_path = os.path.expanduser("~/.cache/python/")
+file_path = os.path.join(dir_path, "history")
+
+os.makedirs(dir_path, exist_ok=True)
+
+try:
+    readline.read_history_file(file_path)
+except IOError:
+    pass
+readline.parse_and_bind("tab: complete")
+readline.set_history_length(1000)
+atexit.register(readline.write_history_file, file_path)
+
+del os, readline, atexit, rlcompleter, dir_path, file_path, __file__

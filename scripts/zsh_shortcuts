@@ -1,0 +1,9 @@
+# Zsh function shortcuts
+
+# TheFuck alias
+eval $(thefuck --alias)
+
+# Make and change into dir
+function mkdcd () {
+     mkdir "$1" && cd "$1"
+ }
