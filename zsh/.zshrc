@@ -1,7 +1,9 @@
 # Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/scripts/zsh_shortcuts" ] && source "$HOME/.config/scripts/zsh_shortcuts"
+[ -f "$HOME/.config/zsh/zsh_shortcuts" ] && source "$HOME/.config/zsh/zsh_shortcuts"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
+#lf completion
+fpath=($HOME/.config/zsh/ $fpath)
 # Autocompletion
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -29,23 +31,6 @@ _comp_options+=(globdots)
 #zle -N zle-keymap-select
 #export KEYTIMEOUT=1
 
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        if [ -d "$dir" ]; then
-            if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir"
-            fi
-        fi
-    fi
-}
-
-bindkey -s '^o' 'lfcd\n'  # zsh
-
 # oh-my-zsh
 # Path to your oh-my-zsh installation.
 export ZSH="/home/akreuzer/.oh-my-zsh"
@@ -54,5 +39,5 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 

@@ -18,4 +18,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'arzg/vim-rust-syntax-ext'
 Plug 'mhinz/vim-signify'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+Plug 'ptzz/lf.vim'
+Plug 'rbgrouleff/bclose.vim' "needed for lf.vim it closes a buffer without closing a window
 call plug#end()
