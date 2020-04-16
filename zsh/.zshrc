@@ -1,6 +1,6 @@
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/zsh/zsh_shortcuts" ] && source "$HOME/.config/zsh/zsh_shortcuts"
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+[ -f "$HOME/.config/zsh/zsh_alias" ] && source "$HOME/.config/zsh/zsh_alias"
 
 #lf completion
 fpath=($HOME/.config/zsh/ $fpath)
@@ -12,7 +12,14 @@ compinit
 # Include hidden files in autocomplete:
 _comp_options+=(globdots)
 
-#bindkey -v
+# oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_CUSTOM=$HOME/.config/zsh/themes
+ZSH_THEME="bubblified"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+
+bindkey -v
 #
 #bindkey '^P' up-history
 #bindkey '^N' down-history
@@ -30,13 +37,6 @@ _comp_options+=(globdots)
 #zle -N zle-line-init
 #zle -N zle-keymap-select
 #export KEYTIMEOUT=1
-
-# oh-my-zsh
-# Path to your oh-my-zsh installation.
-export ZSH="/home/akreuzer/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

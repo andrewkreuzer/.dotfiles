@@ -1,0 +1,2 @@
+# TheFuck alias
+eval $(thefuck --alias)
