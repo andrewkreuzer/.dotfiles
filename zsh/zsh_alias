@@ -1,2 +1,5 @@
 # TheFuck alias
 eval $(thefuck --alias)
+
+# change from alacritty $TERM
+alias ssh='TERM=xterm-256color ssh'

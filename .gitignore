@@ -5,10 +5,12 @@ chromium
 coc
 Code
 configstore
+deepin
 dconf
 enchant
 evolution
 fontforge
+fontconfig
 gconf
 gedit
 gnome-*
@@ -16,6 +18,9 @@ goa-1.0
 gtk-3.0
 htop
 ibus
+kdeglobals
+kglobalshortcutsrc
+kwinrc
 libreoffice
 nautilus
 nvim/plugged
