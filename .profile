@@ -11,6 +11,10 @@ export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
 
+# Config shortcuts
+export VIMCONFIGDIR="$HOME/.config/nvim/"
+export ZSHCONFIG="$HOME/.config/zsh/.zshrc"
+
 # ~/ Clean-up:
 export LESSHISTFILE="-"
 export ZDOTDIR="$HOME/.config/zsh"
