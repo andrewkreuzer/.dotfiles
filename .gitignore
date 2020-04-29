@@ -11,6 +11,7 @@ enchant
 evolution
 fontforge
 fontconfig
+gcloud
 gconf
 gedit
 gnome-*
@@ -27,6 +28,7 @@ nvim/plugged
 ObinsKit
 procps
 pulse
+rclone
 termite
 thefuck
 wal

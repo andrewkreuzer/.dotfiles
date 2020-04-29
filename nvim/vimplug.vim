@@ -20,4 +20,5 @@ Plug 'mhinz/vim-signify'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim' "needed for lf.vim it closes a buffer without closing a window
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
