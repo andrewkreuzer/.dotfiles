@@ -8,6 +8,10 @@
 super + alt + Escape
 	pkill -USR1 -x sxhkd
 
+# Reload bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
 # End Session
 super + Escape 
 	bspc quit
@@ -16,13 +20,18 @@ super + Escape
 super + Return
 	$TERMINAL
 
-# scratchpad
-#alt + 0
-#    bspwm_scratchpad.sh scratchpad
-
 # firefox
 super + f
 	firefox
+
+# virtualbox 
+super + v 
+    virtualbox
+
+# scratchpad
+alt + 0
+    id=$(cat /tmp/scratchid); \
+    bspc node $id --flag hidden; bspc node -f $id
 
 # program launcher
 super + d
@@ -150,3 +159,4 @@ super {_,shift} + minus
 	{amixer sset Master 5%-,mpc volume -5}
 super + shift + m
 	amixer sset Master toggle
+
