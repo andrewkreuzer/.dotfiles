@@ -20,7 +20,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 bindkey -v
-#
+
 #bindkey '^P' up-history
 #bindkey '^N' down-history
 #bindkey '^?' backward-delete-char
@@ -39,5 +39,4 @@ bindkey -v
 #export KEYTIMEOUT=1
 
 # Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
