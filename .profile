@@ -14,6 +14,15 @@ export BROWSER="firefox"
 # Config shortcuts
 export VIMCONFIGDIR="$HOME/.config/nvim/"
 export ZSHCONFIG="$HOME/.config/zsh/.zshrc"
+export XORGCONFIG="$HOME/.config/xorg/xorg.conf"
+
+# gpg-agent
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpg-connect-agent updatestartuptty /bye > /dev/null
+
+#gpgconf --launch gpg-agent
+# ^ this doesn't work for some reason??? 
 
 # ~/ Clean-up:
 export LESSHISTFILE="-"
