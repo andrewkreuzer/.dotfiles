@@ -40,3 +40,4 @@ mimeapps.list
 monitors.xml*
 user-dirs.dirs
 user-dirs.locale
+systemd/user/default.target.wants
