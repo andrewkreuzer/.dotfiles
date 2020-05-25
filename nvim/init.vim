@@ -1,11 +1,18 @@
 source ~/.config/nvim/vimplug.vim
 
-set encoding=utf-8
-syntax enable
-set showmatch
-set t_Co=256
+syntax on
 hi Visual cterm=reverse ctermbg=NONE
 set number relativenumber
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+set nowrap
+set incsearch
+set hidden
+set smartcase
+
+" Theme
+colorscheme gruvbox
+set background=dark
 
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -13,13 +20,13 @@ set number relativenumber
 " Open splits to the bottom and right
     set splitbelow splitright
 
-" TAB SETTINGS
-    set tabstop=4
-    set softtabstop=4
+" Tab Settings
+    set tabstop=4 softtabstop=4
     set shiftwidth=4
     set expandtab
+    set smartindent
 
-" SHORTCUT MAPPINGS
+" Shortcuts
     map <C-n> :NERDTreeToggle<CR>
     " map <C-c> :q<CR>
     " map <C-x> :q!<CR>
@@ -31,17 +38,16 @@ set number relativenumber
 	map <C-k> <C-w>k
 	map <C-l> <C-w>l
 
-" syntastic settings
-    "set statusline+=%#warningmsg#
-    "set statusline+=%{SyntasticStatuslineFlag()}
-    "set statusline+=%*
+" Search highlighting cancel
+nnorema <esc><esc> :silent! nohls<cr>
 
-    "let g:syntastic_always_populate_loc_list = 1
-    "let g:syntastic_auto_loc_list = 1
-    "let g:syntastic_check_on_open = 1
-    "let g:syntastic_check_on_wq = 0
+" Fzf
+let mapleader = "\<Space>"
+nnoremap <C-f> :GFiles<CR>
+nnoremap <Leader>pf :Files<CR>
 
 " Source additional files
 source ~/.config/nvim/nerdTree.vim
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/airline.vim
+

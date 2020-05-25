@@ -1,5 +1,5 @@
 " Airline
-    let airline_theme='base16color'
+    let airline_theme='gruvbox'
     
     if !exists('g:airline_symbols')
     let g:airline_symbols = {}
