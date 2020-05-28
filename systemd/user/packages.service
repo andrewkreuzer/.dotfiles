@@ -1,0 +1,6 @@
+[Unit]
+Description=Update Package list
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /home/akreuzer/.config/scripts/update_package_list.sh
