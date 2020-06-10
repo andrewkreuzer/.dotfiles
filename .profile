@@ -4,6 +4,7 @@
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="$PATH:$HOME/.config/scripts"
 
 # Default programs:
