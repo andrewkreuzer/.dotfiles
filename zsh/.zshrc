@@ -16,7 +16,7 @@ _comp_options+=(globdots)
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM=$HOME/.config/zsh/themes
 ZSH_THEME="bubblified"
-plugins=(git)
+plugins=(git history)
 source $ZSH/oh-my-zsh.sh
 
 bindkey -v
