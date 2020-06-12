@@ -158,34 +158,64 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: true
 
+  #colors:
+  #  # Default colors
+  #  primary:
+  #    background: '0x0c0f12'
+  #    foreground: '0xaec2c1'
+  #
+  #  # Normal colors
+  #  normal:
+  #    black:   '0x0c0f12'
+  #    red:     '0x972c33'
+  #    green:   '0x5c4058'
+  #    yellow:  '0x0f556a'
+  #    blue:    '0xbd4859'
+  #    magenta: '0x475c8f'
+  #    cyan:    '0xb36299'
+  #    white:   '0xaec2c1'
+  #
+  #  # Bright colors
+  #  bright:
+  #    black:   '0x798787'
+  #    red:     '0x972c33'
+  #    green:   '0x5c4058'
+  #    yellow:  '0x0f556a'
+  #    blue:    '0xbd4859'
+  #    magenta: '0x475c8f'
+  #    cyan:    '0xb36299'
+  #    white:   '0xaec2c1'
+
+# Colors (Gruvbox dark)
 colors:
   # Default colors
   primary:
-    background: '0x0c0f12'
-    foreground: '0xaec2c1'
+    # hard contrast: background = '#1d2021'
+    background: '#282828'
+    # soft contrast: background = '#32302f'
+    foreground: '#ebdbb2'
 
   # Normal colors
   normal:
-    black:   '0x0c0f12'
-    red:     '0x972c33'
-    green:   '0x5c4058'
-    yellow:  '0x0f556a'
-    blue:    '0xbd4859'
-    magenta: '0x475c8f'
-    cyan:    '0xb36299'
-    white:   '0xaec2c1'
+    black:   '#282828'
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#689d6a'
+    white:   '#a89984'
 
   # Bright colors
   bright:
-    black:   '0x798787'
-    red:     '0x972c33'
-    green:   '0x5c4058'
-    yellow:  '0x0f556a'
-    blue:    '0xbd4859'
-    magenta: '0x475c8f'
-    cyan:    '0xb36299'
-    white:   '0xaec2c1'
-
+    black:   '#928374'
+    red:     '#fb4934'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#83a598'
+    magenta: '#d3869b'
+    cyan:    '#8ec07c'
+    white:   '#ebdbb2'
 
 # Colors (Tomorrow Night Bright)
 #colors:
