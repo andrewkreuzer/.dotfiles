@@ -28,7 +28,6 @@ nvim/plugged
 ObinsKit
 procps
 pulse
-rclone
 termite
 thefuck
 wal
@@ -41,3 +40,4 @@ monitors.xml*
 user-dirs.dirs
 user-dirs.locale
 systemd/user/default.target.wants
+systemd/user/timers.target.wants
