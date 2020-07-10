@@ -1,0 +1,9 @@
+[Unit]
+Description=sanoid zfs snapshoting timer
+
+[Timer]
+OnCalendar=minutely
+OnBootSec=5min
+
+[Install]
+WantedBy=timers.target

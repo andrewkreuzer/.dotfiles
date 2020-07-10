@@ -1,0 +1,9 @@
+[Unit]
+Description=backblaze sync
+
+[Timer]
+OnCalendar=daily
+OnBootSec=15min
+
+[Install]
+WantedBy=timers.target

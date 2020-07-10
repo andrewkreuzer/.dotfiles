@@ -1,0 +1,6 @@
+[Unit]
+Description=sanoid zfs snapshoting
+
+[Service] 
+Type=simple 
+ExecStart=/usr/bin/sanoid --cron
