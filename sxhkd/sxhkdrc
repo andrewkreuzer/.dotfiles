@@ -4,6 +4,10 @@
 #  \__ \>  <| | | |   < (_| |
 #  |___/_/\_\_| |_|_|\_\__,_|
 
+# Lock
+ctrl + alt + Escape
+    /home/akreuzer/.config/scripts/lock.sh
+
 # Reload sxhkd
 super + alt + Escape
 	pkill -USR1 -x sxhkd
@@ -28,10 +32,20 @@ super + f
 super + v 
     virtualbox
 
-# scratchpad
-alt + 0
-    id=$(cat /tmp/scratchid); \
+# scratchpad_left
+alt + 1
+    id=$(cat /tmp/scratch_left_id); \
     bspc node $id --flag hidden; bspc node -f $id
+
+# scratchpad_right
+alt + 0
+    id=$(cat /tmp/scratch_right_id); \
+    bspc node $id --flag hidden; bspc node -f $id
+
+super + u
+    bspc node -m DVI-I-1 --follow
+super + y
+    bspc node -m DP-1 --follow
 
 # program launcher
 super + d
