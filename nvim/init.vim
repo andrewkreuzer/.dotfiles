@@ -50,4 +50,5 @@ nnoremap <Leader>pf :Files<CR>
 source ~/.config/nvim/nerdTree.vim
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/airline.vim
+source ~/.config/nvim/mardown-preview.vim
 
