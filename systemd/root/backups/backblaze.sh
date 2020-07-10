@@ -15,9 +15,10 @@ for d in ${dirs[@]}; do
     SECONDS=0
     rclone --config="/home/akreuzer/.config/rclone/rclone.conf" sync --password-command="echo $RCLONE_CONFIG_PASS" $d croft-encrypt:$d
     duration=$SECONDS
+    message="$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed for $d"
     curl -s \
              --form-string "token=$APP_TOKEN" \
              --form-string "user=$USER_KEY" \
-             --form-string "message=$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed for $d" \
+             --form-string "message=$message" \
              https://api.pushover.net/1/messages.json
 done
