@@ -14,9 +14,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'arzg/vim-rust-syntax-ext'
 Plug 'mhinz/vim-signify'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'pearofducks/ansible-vim'
 
 " Themes
 Plug 'gruvbox-community/gruvbox'
