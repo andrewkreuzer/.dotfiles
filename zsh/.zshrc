@@ -13,7 +13,7 @@ compinit
 _comp_options+=(globdots)
 
 # oh-my-zsh
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.config/.oh-my-zsh"
 ZSH_CUSTOM=$HOME/.config/zsh/themes
 ZSH_THEME="bubblified"
 plugins=(git history)
