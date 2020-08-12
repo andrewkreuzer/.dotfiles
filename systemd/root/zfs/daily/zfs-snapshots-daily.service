@@ -1,0 +1,5 @@
+[Unit]
+Description=zfs daily snapshot
+[Service] 
+Type=simple 
+ExecStart=/usr/local/bin/zfs-snapshots-daily.sh
