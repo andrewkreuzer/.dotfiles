@@ -38,5 +38,8 @@ bindkey -v
 #zle -N zle-keymap-select
 #export KEYTIMEOUT=1
 
+# Load zoxide
+eval "$(zoxide init zsh)"
+
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
