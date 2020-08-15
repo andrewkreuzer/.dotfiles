@@ -1,6 +1,6 @@
 .cache/
-.ccache/
 .cargo/
+.ccache/
 .config/
 .gradle/
 .java/
@@ -17,4 +17,5 @@
 .yarnrc
 Android/
 dev/android/kernel/
+dev/look/orw
 Downloads/
