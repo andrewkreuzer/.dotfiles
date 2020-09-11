@@ -19,3 +19,4 @@ Android/
 dev/android/kernel/
 dev/look/orw
 Downloads/
+pkgs/

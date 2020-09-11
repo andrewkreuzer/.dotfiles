@@ -12,7 +12,8 @@ dirs=(
 
 for d in ${dirs[@]}; do
     SECONDS=0
-    rclone sync $d croft-encrypt:$d -L \
+    rclone --fast-list \
+    sync $d croft-encrypt:$d -L \
         --password-command="echo $RCLONE_CONFIG_PASS" \
         --config="/home/akreuzer/.config/rclone/rclone.conf" \
         --exclude-from="/home/akreuzer/dotfiles/systemd/root/backups/exclude.txt"
