@@ -15,28 +15,31 @@ colorscheme gruvbox
 set background=dark
 
 " Disables automatic commenting on newline:
-	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" auto wrap markdown
+au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " Open splits to the bottom and right
-    set splitbelow splitright
+set splitbelow splitright
 
 " Tab Settings
-    set tabstop=4 softtabstop=4
-    set shiftwidth=4
-    set expandtab
-    set smartindent
+set tabstop=2 softtabstop=2
+set shiftwidth=2
+set expandtab
+set smartindent
 
 " Shortcuts
-    map <C-n> :NERDTreeToggle<CR>
-    " map <C-c> :q<CR>
-    " map <C-x> :q!<CR>
-    " map <C-s> :w<CR>
-    map <C-m> :wq<CR>
-    " Shortcutting split navigation, saving a keypress:
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
+map <C-n> :NERDTreeToggle<CR>
+" map <C-c> :q<CR>
+" map <C-x> :q!<CR>
+" map <C-s> :w<CR>
+map <C-m> :wq<CR>
+" Shortcutting split navigation, saving a keypress:
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Search highlighting cancel
 nnorema <esc><esc> :silent! nohls<cr>
