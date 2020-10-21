@@ -11,8 +11,8 @@ set hidden
 set smartcase
 
 " Theme
-colorscheme gruvbox
 set background=dark
+colorscheme gruvbox
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -29,12 +29,16 @@ set shiftwidth=2
 set expandtab
 set smartindent
 
-" Shortcuts
-map <C-n> :NERDTreeToggle<CR>
-" map <C-c> :q<CR>
-" map <C-x> :q!<CR>
-" map <C-s> :w<CR>
-map <C-m> :wq<CR>
+let mapleader = "\<Space>"
+
+" Shout out the current file
+nnoremap <Leader>ss :so %<CR>
+
+" Change cwd to buffer
+nnoremap <Leader>dj :lcd %:p:h<CR>
+" Jump one more up
+nnoremap <Leader>djj :lcd %:p:h:h<CR>
+
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -42,16 +46,50 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Search highlighting cancel
-nnorema <esc><esc> :silent! nohls<cr>
+nnoremap <esc><esc> :silent! nohls<cr>
+
+map <C-n> :NERDTreeToggle<CR>
+
+let g:NERDTreeWinSize=30
+
+" Nerd Tree auto start 
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Nerd Tree auto close when no file open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+let g:NERDTreeDirArrowExpandable = '﬌'
+let g:NERDTreeDirArrowCollapsible = ''
+
+" Undotree
+nnoremap <Leader><C-u> :UndotreeToggle<CR>
+
+if !exists('g:undotree_SplitWidth')
+  let g:undotree_SplitWidth = 30
+endif
+
+if !exists('g:undotree_WindowLayout')
+  let g:undotree_WindowLayout = 2
+endif
+
+if !exists('g:undotree_SetFocusWhenToggle')
+    let g:undotree_SetFocusWhenToggle = 1
+endif
+
+if !exists('g:undotree_HighlightChangedText')
+    let g:undotree_HighlightChangedText = 0
+endif
+
+if !exists('g:undotree_HighlightChangedWithSign')
+    let g:undotree_HighlightChangedWithSign = 1
+endif
 
 " Fzf
-let mapleader = "\<Space>"
-nnoremap <C-f> :GFiles<CR>
-nnoremap <Leader>pf :Files<CR>
+nnoremap <Leader>df :GFiles<CR>
+nnoremap <Leader>ff :Files<CR>
 
 " Source additional files
-source ~/.config/nvim/nerdTree.vim
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/airline.vim
-source ~/.config/nvim/mardown-preview.vim
 

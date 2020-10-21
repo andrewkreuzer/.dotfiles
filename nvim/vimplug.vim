@@ -13,15 +13,18 @@ Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'arzg/vim-rust-syntax-ext'
 Plug 'mhinz/vim-signify'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'mbbill/undotree'
+Plug 'hashivim/vim-terraform'
+"Plug 'hashicorp/terraform-ls'
 
 " Themes
 Plug 'gruvbox-community/gruvbox'
+Plug 'ayu-theme/ayu-vim'
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
