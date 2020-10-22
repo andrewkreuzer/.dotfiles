@@ -8,6 +8,8 @@ export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="$PATH:$HOME/.config/scripts"
 export PATH="$PATH:$HOME/dev/pebble/pebble-sdk-4.5-linux64/bin"
 
+export PATH="$PATH:/opt/miniconda3/bin"
+
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="alacritty"

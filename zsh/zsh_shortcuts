@@ -2,3 +2,9 @@
 function mkdcd () {
      mkdir "$1" && cd "$1"
  }
+
+# Conda
+condainit() {
+  eval "$(/opt/miniconda3/bin/conda shell.zsh hook)"
+}
+
