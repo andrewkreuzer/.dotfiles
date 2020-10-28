@@ -18,7 +18,7 @@ export BROWSER="firefox"
 # Config shortcuts
 export VIMCONFIGDIR="$HOME/.config/nvim/"
 export ZSHCONFIG="$HOME/.config/zsh/.zshrc"
-export XORGCONFIG="$HOME/.config/xorg/xorg.conf"
+export DOTFILES="$HOME/dotfiles/"
 
 # gpg-agent
 export GPG_TTY="$(tty)"
@@ -28,7 +28,6 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 #gpgconf --launch gpg-agent
 # ^ this doesn't work for some reason??? 
 
-# ~/ Clean-up:
 export LESSHISTFILE="-"
 export ZDOTDIR="$HOME/.config/zsh"
 export HISTFILE="$HOME/.cache/zsh/history"

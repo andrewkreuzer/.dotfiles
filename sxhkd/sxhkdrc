@@ -30,7 +30,7 @@ super + f
 
 # virtualbox 
 super + v 
-    virtualbox
+  virtualbox
 
 # scratchpad_left
 alt + 1
@@ -50,6 +50,7 @@ super + y
 # program launcher
 super + d
 	rofi -show drun -config ~/.config/rofi/config
+
 # kill
 super + {_,shift + }q
 	bspc node -{c,k}
