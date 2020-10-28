@@ -1,5 +1,6 @@
 home_folder: "$HOME"
 dotfile_location: "{{ home_folder }}/dotfiles/"
+config_folder: "{{ home_folder }}/.config"
 
 dotfiles_config:
   - alacritty/
