@@ -1,0 +1,34 @@
+---
+
+- name: Clone dotfiles repo
+  git:
+    repo: "https://gitlab.com/andrewkreuzer/dotfiles.git"
+    dest: "{{ dotfile_location }}"
+  become: false
+
+- name: Setup .config links
+  file:
+    src: "{{ dotfile_location }}/{{ item }}"
+    dst: "{{ config_folder }}/{{ item }}"
+    state: link
+    mode: 644
+  become: false
+  with_items: "{{ dotfiles_config }}"
+
+- name: Setup $HOME links
+  file:
+    src: "{{ dotfile_location }}/{{ item }}"
+    dst: "{{ home_folder }}/{{ item }}"
+    state: link
+    mode: 644
+  become: false
+  with_items: "{{ dotfiles_home }}"
+
+  # hard code for .zprofile
+  file:
+    src: "{{ dotfile_location }}/.profile"
+    dst: "{{ home_folder }}/.zprofile"
+    state: link
+    mode: 644
+  become: false
+

@@ -1,0 +1,44 @@
+home_folder: "$HOME"
+dotfile_location: "{{ home_folder }}/dotfiles/"
+
+dotfiles_config:
+  - alacritty/
+  - nvim/
+  - spotifyd/ 
+  - tmux/
+  - zsh/
+
+dotfiles_home:
+  - .profile
+
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+
+homebrew_cask_apps:
+  - docker
+  - firefox
+  - slack
+
+homebrew_installed_packages:
+  - alacritty
+  - docker-compose
+  - fzf
+  - git
+  - gpg
+  - go
+  - node
+  - nvim
+  - nvm
+  - openssl
+  - rust
+  - spotifyd
+  - spotify-tui
+  - terraform
+  - tldr
+  - tmux
+  - wget
+  - zoxide
+  - zsh
+  - zsh-syntax-highlighting
+
