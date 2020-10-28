@@ -6,10 +6,16 @@
     dest: "{{ dotfile_location }}"
   become: false
 
+- name: Create .config folder
+  file:
+    path: "{{ config_folder }}"
+    state: directory
+    mode: 0755
+
 - name: Setup .config links
   file:
     src: "{{ dotfile_location }}/{{ item }}"
-    dst: "{{ config_folder }}/{{ item }}"
+    dest: "{{ config_folder }}/{{ item }}"
     state: link
     mode: 644
   become: false
@@ -18,16 +24,21 @@
 - name: Setup $HOME links
   file:
     src: "{{ dotfile_location }}/{{ item }}"
-    dst: "{{ home_folder }}/{{ item }}"
+    dest: "{{ home_folder }}/{{ item }}"
     state: link
     mode: 644
   become: false
   with_items: "{{ dotfiles_home }}"
 
+- name: remove default .zprofile
+  file:
+    path: "{{ home_folder }}.zprofile"
+    state: absent
+
 - name: copy .zprofile
   file:
     src: "{{ dotfile_location }}/.profile"
-    dst: "{{ home_folder }}/.zprofile"
+    dest: "{{ home_folder }}/.zprofile"
     state: link
     mode: 644
   become: false
