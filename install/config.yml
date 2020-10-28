@@ -22,7 +22,7 @@ homebrew_cask_apps:
   - slack
 
 homebrew_installed_packages:
-  - alacritty
+  # - alacritty
   - docker-compose
   - fzf
   - git
