@@ -17,7 +17,7 @@
     src: "{{ dotfile_location }}/{{ item }}"
     dest: "{{ config_folder }}/{{ item }}"
     state: link
-    mode: 644
+    mode: 755
   become: false
   with_items: "{{ dotfiles_config }}"
 
@@ -26,7 +26,7 @@
     src: "{{ dotfile_location }}/{{ item }}"
     dest: "{{ home_folder }}/{{ item }}"
     state: link
-    mode: 644
+    mode: 755
   become: false
   with_items: "{{ dotfiles_home }}"
 
@@ -40,6 +40,5 @@
     src: "{{ dotfile_location }}/.profile"
     dest: "{{ home_folder }}/.zprofile"
     state: link
-    mode: 644
+    mode: 755
   become: false
-
