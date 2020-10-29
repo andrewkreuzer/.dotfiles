@@ -1,10 +1,10 @@
 ---
 
-- name: Clone dotfiles repo
-  git:
-    repo: "https://gitlab.com/andrewkreuzer/dotfiles.git"
-    dest: "{{ dotfile_location }}"
-  become: false
+#- name: Clone dotfiles repo
+#  git:
+#    repo: "https://gitlab.com/andrewkreuzer/dotfiles.git"
+#    dest: "{{ dotfile_location }}"
+#  become: false
 
 - name: Create .config folder
   file:

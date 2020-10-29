@@ -32,11 +32,12 @@ homebrew_installed_packages:
   - nvim
   - nvm
   - openssl
+  - ripgrep
   - rust
   - spotifyd
   - spotify-tui
   - terraform
-  - tldr
+  - tealdeer
   - tmux
   - wget
   - zoxide
