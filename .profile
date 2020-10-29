@@ -1,14 +1,14 @@
 # Profile file. Runs on login. Environmental variables are set here.
 
 # Path
-export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+#export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="$PATH:$HOME/.config/scripts"
-export PATH="$PATH:$HOME/dev/pebble/pebble-sdk-4.5-linux64/bin"
+#export PATH="$PATH:$HOME/dev/pebble/pebble-sdk-4.5-linux64/bin"
 
-export PATH="$PATH:/opt/miniconda3/bin"
+#export PATH="$PATH:/opt/miniconda3/bin"
 
 # Default programs:
 export EDITOR="nvim"
@@ -21,9 +21,9 @@ export ZSHCONFIG="$HOME/.config/zsh/.zshrc"
 export DOTFILES="$HOME/dotfiles/"
 
 # gpg-agent
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpg-connect-agent updatestartuptty /bye > /dev/null
+#export GPG_TTY="$(tty)"
+#export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+#gpg-connect-agent updatestartuptty /bye > /dev/null
 
 #gpgconf --launch gpg-agent
 # ^ this doesn't work for some reason??? 

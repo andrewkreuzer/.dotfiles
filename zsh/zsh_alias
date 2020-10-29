@@ -1,5 +1,5 @@
 # TheFuck alias
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 
 alias evr='nvim $VIMCONFIGDIR/init.vim'
 alias ezr='nvim $DOTFILES/zsh/.zshrc'
