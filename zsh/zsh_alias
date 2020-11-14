@@ -1,5 +1,4 @@
-# TheFuck alias
-# eval $(thefuck --alias)
+alias ls='ls --color=auto'
 
 alias evr='nvim $VIMCONFIGDIR/init.vim'
 alias ezr='nvim $DOTFILES/zsh/.zshrc'
@@ -7,3 +6,6 @@ alias edots='nvim $DOTFILES'
 
 # change from alacritty $TERM
 alias ssh='TERM=xterm-256color ssh'
+
+# TheFuck alias
+eval $(thefuck --alias)

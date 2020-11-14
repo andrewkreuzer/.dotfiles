@@ -87,6 +87,9 @@ endif
 " Fzf
 nnoremap <Leader>df :GFiles<CR>
 nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>ss :Rg<CR>
+nnoremap <Leader>hs :History/<CR>
+nnoremap <Leader>hh :History:<CR>
 
 " Source additional files
 source ~/.config/nvim/coc.vim
