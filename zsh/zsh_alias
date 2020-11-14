@@ -1,4 +1,4 @@
-alias ls='ls --color=auto'
+alias ls='ls -G'
 
 alias evr='nvim $VIMCONFIGDIR/init.vim'
 alias ezr='nvim $DOTFILES/zsh/.zshrc'
