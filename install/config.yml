@@ -18,20 +18,26 @@ homebrew_taps:
 
 homebrew_cask_apps:
   - docker
+  - postman
   - firefox
   - slack
+  - vagrant
+  - virtualbox
 
 homebrew_installed_packages:
   # - alacritty
+  - awscli
   - docker-compose
   - fzf
   - git
   - gpg
   - go
+  - hopenpgp-tools
   - node
   - nvim
   - nvm
   - openssl
+  - pass
   - ripgrep
   - rust
   - spotifyd
@@ -40,6 +46,8 @@ homebrew_installed_packages:
   - tealdeer
   - tmux
   - wget
+  - yubikey-personalization
+  - ykman
   - zoxide
   - zsh
   - zsh-syntax-highlighting
