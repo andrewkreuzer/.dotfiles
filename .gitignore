@@ -41,3 +41,4 @@ user-dirs.dirs
 user-dirs.locale
 systemd/user/default.target.wants
 systemd/user/timers.target.wants
+.zsh_history
