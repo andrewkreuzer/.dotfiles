@@ -1,4 +1,5 @@
 # Path
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.yarn/bin"
@@ -23,6 +24,8 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 export LESSHISTFILE="-"
 export ZDOTDIR="$HOME/.config/zsh"
 export HISTFILE="$HOME/.cache/zsh/history"
+
+export DOTFILES="$HOME/dotfiles"
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
