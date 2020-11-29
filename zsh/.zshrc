@@ -1,3 +1,7 @@
+# load time tester
+# for i in $(seq 1 10); do time /bin/zsh -i -c exit; done;
+# zmodload zsh/zprof
+
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/zsh/zsh_shortcuts" ] && source "$HOME/.config/zsh/zsh_shortcuts"
 [ -f "$HOME/.config/zsh/zsh_alias" ] && source "$HOME/.config/zsh/zsh_alias"
@@ -34,14 +38,11 @@ autoload bashcompinit
 bashcompinit
 complete -C /usr/bin/terraform terraform
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 bindkey -v
-
-# Load zsh-syntax-highlighting; should be last.
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load zoxide
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
+# Load zsh-syntax-highlighting; should be last.
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
