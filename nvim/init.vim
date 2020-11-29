@@ -11,8 +11,9 @@ set hidden
 set smartcase
 
 " Theme
-set background=dark
-colorscheme gruvbox
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
