@@ -92,5 +92,4 @@ nnoremap <Leader>hh :History:<CR>
 
 " Source additional files
 source ~/.config/nvim/coc.vim
-source ~/.config/nvim/airline.vim
 
