@@ -1,14 +1,22 @@
 source ~/.config/nvim/vimplug.vim
 
-syntax on
+syntax enable
 hi Visual cterm=reverse ctermbg=NONE
-set number relativenumber
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
+set number relativenumber
 set nowrap
 set incsearch
+set ignorecase
 set hidden
 set smartcase
+set cmdheight=1
+set cursorline
+
+set noequalalways
+set splitbelow splitright
+
+set hlsearch
 
 " Theme
 set termguicolors
@@ -21,14 +29,14 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " auto wrap markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
-" Open splits to the bottom and right
-set splitbelow splitright
-
 " Tab Settings
-set tabstop=2 softtabstop=2
-set shiftwidth=2
+set tabstop=2 softtabstop=2 shiftwidth=2
 set expandtab
-set smartindent
+set autoindent
+set cindent
+
+set inccommand=split
+set list
 
 let mapleader = "\<Space>"
 
