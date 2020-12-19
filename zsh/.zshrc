@@ -1,6 +1,8 @@
 # load time tester
 # for i in $(seq 1 10); do time /bin/zsh -i -c exit; done;
-# zmodload zsh/zprof
+zmodload zsh/zprof
+
+HISTFILE="$HOME/.cache/zsh/history"
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/zsh/zsh_shortcuts" ] && source "$HOME/.config/zsh/zsh_shortcuts"
