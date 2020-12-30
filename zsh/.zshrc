@@ -32,6 +32,8 @@ bindkey '^[[B' history-beginning-search-forward-end
 bindkey -M vicmd 'k' history-beginning-search-backward-end
 bindkey -M vicmd 'j' history-beginning-search-forward-end
 
+# Shared history
+setopt share_history
 
 # Terraform autocomplete
 autoload bashcompinit

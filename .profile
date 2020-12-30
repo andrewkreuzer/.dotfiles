@@ -24,6 +24,7 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 export LESSHISTFILE="-"
 export ZDOTDIR="$HOME/.config/zsh"
 export ZSHRC="$ZDOTDIR/.zshrc"
+export SAVEHIST=200
 export HISTFILE="$HOME/.cache/zsh/history"
 export DOTFILES="$HOME/dotfiles"
 
