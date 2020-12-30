@@ -19,6 +19,9 @@ export DOTFILES="$HOME/dotfiles"
 
 export ZDOTDIR="$HOME/.config/zsh"
 export ZSHRC="$ZDOTDIR/.zshrc"
+export SAVEHIST=200
+export HISTFILE="$HOME/.cache/zsh/history"
+export DOTFILES="$HOME/dotfiles"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 # Python interactive interpreter settings
