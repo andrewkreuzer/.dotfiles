@@ -13,7 +13,6 @@ set smartcase
 set cmdheight=1
 set cursorline
 
-set noequalalways
 set splitbelow splitright
 
 set hlsearch
@@ -97,6 +96,7 @@ nnoremap <Leader>ff :Files<CR>
 nnoremap <Leader>ss :Rg<CR>
 nnoremap <Leader>hs :History/<CR>
 nnoremap <Leader>hh :History:<CR>
+nnoremap <Leader>aa :Buffer:<CR>
 
 " Source additional files
 source ~/.config/nvim/coc.vim
