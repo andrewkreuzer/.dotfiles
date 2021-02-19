@@ -34,18 +34,32 @@ set expandtab
 set autoindent
 set cindent
 
+
 set inccommand=split
 set list
 
 let mapleader = "\<Space>"
 
-" Shout out the current file
-nnoremap <Leader>ss :so %<CR>
-
 " Change cwd to buffer
 nnoremap <Leader>dj :lcd %:p:h<CR>
 " Jump one more up
 nnoremap <Leader>djj :lcd %:p:h:h<CR>
+
+" Fzf
+nnoremap <Leader>df :GFiles<CR>
+nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>ss :Rg<CR>
+nnoremap <Leader>hs :History/<CR>
+nnoremap <Leader>hh :History<CR>
+nnoremap <Leader>aa :Buffers<CR>
+
+" Harpoon
+noremap <Leader>tf :call Harpoon_GotoTerminal(0)<CR>
+tnoremap  \\ <C-\><C-n><CR>
+
+" VimSpector
+let g:vimspector_enable_mappings = 'HUMAN'
+
 
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
@@ -54,7 +68,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Search highlighting cancel
-nnoremap <esc><esc> :silent! nohls<cr>
+nnoremap <Esc><Esc> :silent! nohls<cr>
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -89,36 +103,6 @@ endif
 if !exists('g:undotree_HighlightChangedWithSign')
     let g:undotree_HighlightChangedWithSign = 1
 endif
-
-" Fzf
-nnoremap <Leader>df :GFiles<CR>
-nnoremap <Leader>ff :Files<CR>
-nnoremap <Leader>ss :Rg<CR>
-nnoremap <Leader>hs :History/<CR>
-nnoremap <Leader>hh :History:<CR>
-nnoremap <Leader>aa :Buffer:<CR>
-
-" Status line
-" function! StatuslineGit()
-"   let l:branchname = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-"   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-" endfunction
-
-" set statusline=
-" set statusline+=%#PmenuSel#
-" set statusline+=%{StatuslineGit()}
-" set statusline+=%#LineNr#
-" set statusline+=\ %f
-" set statusline+=%m\
-" set statusline+=%=
-" set statusline+=%#CursorColumn#
-" set statusline+=\ %y
-" set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-" set statusline+=\[%{&fileformat}\]
-" set statusline+=\ %p%%
-" set statusline+=\ %l:%c
-
-" statusline
 
 function! ActiveStatus()
   let statusline=""

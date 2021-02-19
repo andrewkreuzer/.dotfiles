@@ -20,6 +20,9 @@ Plug 'pearofducks/ansible-vim'
 Plug 'mbbill/undotree'
 Plug 'hashivim/vim-terraform'
 "Plug 'hashicorp/terraform-ls'
+Plug 'puremourning/vimspector'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'ThePrimeagen/harpoon'
 
 " Themes
 Plug 'gruvbox-community/gruvbox'
