@@ -4,9 +4,11 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="$PATH:$HOME/.config/scripts"
-export PATH="$PATH:$HOME/dev/pebble/pebble-sdk-4.5-linux64/bin"
 
+export PATH="$PATH:$HOME/dev/pebble/pebble-sdk-4.5-linux64/bin"
 export PATH="$PATH:/opt/miniconda3/bin"
+export PATH="$PATH:$HOME/.pulumi/bin"
+
 
 # Default programs:
 export EDITOR="nvim"
@@ -24,7 +26,7 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 export LESSHISTFILE="-"
 export ZDOTDIR="$HOME/.config/zsh"
 export ZSHRC="$ZDOTDIR/.zshrc"
-export SAVEHIST=200
+export SAVEHIST=2000
 export HISTFILE="$HOME/.cache/zsh/history"
 export DOTFILES="$HOME/dotfiles"
 

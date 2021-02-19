@@ -46,5 +46,9 @@ bindkey -v
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
+source '/home/akreuzer/.local/lib/azure-cli/az.completion'
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
