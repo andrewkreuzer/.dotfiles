@@ -11,6 +11,7 @@
 .nv/
 .pylint.d/
 .stack/
+.steam/
 .rustup/
 .wine/
 .yarn/

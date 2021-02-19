@@ -2,7 +2,7 @@
 Description=backblaze sync
 
 [Timer]
-OnCalendar=daily
+OnCalendar=weekly
 OnBootSec=15min
 
 [Install]
