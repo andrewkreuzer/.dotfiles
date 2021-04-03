@@ -99,6 +99,7 @@ nnoremap <Leader>ss :Rg<CR>
 nnoremap <Leader>hs :History/<CR>
 nnoremap <Leader>hh :History:<CR>
 nnoremap <Leader>aa :Buffer:<CR>
+nnoremap <Leader>sw :Rg <C-R><C-W><CR>
 
 " Source additional files
 source ~/.config/nvim/coc.vim

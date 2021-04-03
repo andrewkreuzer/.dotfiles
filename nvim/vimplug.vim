@@ -20,6 +20,7 @@ Plug 'pearofducks/ansible-vim'
 Plug 'mbbill/undotree'
 Plug 'hashivim/vim-terraform'
 "Plug 'hashicorp/terraform-ls'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Themes
 Plug 'gruvbox-community/gruvbox'
