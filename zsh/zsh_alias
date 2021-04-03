@@ -9,6 +9,7 @@ alias ssh='TERM=xterm-256color ssh'
 
 # history search
 alias hs='history | grep --color'
+alias notes='nvim ~/Documents/notes'
 
 # TheFuck alias
 eval $(thefuck --alias)
