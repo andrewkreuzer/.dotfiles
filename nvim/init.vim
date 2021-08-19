@@ -21,6 +21,9 @@ set cindent
 set inccommand=split
 set list
 
+" Lua
+lua require('init')
+
 " Theme
 set termguicolors
 let ayucolor="dark"
@@ -32,3 +35,4 @@ augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
+

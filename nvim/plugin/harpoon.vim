@@ -1,9 +1,9 @@
 " Harpoon
-nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
-nnoremap <C-g> :lua require("harpoon.ui").toggle_quick_menu()<CR>
-nnoremap <C-s> :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <C-d> :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <C-f> :lua require("harpoon.ui").nav_file(3)<CR>
+" nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
+" nnoremap <C-g> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+" nnoremap <C-s> :lua require("harpoon.ui").nav_file(1)<CR>
+" nnoremap <C-d> :lua require("harpoon.ui").nav_file(2)<CR>
+" nnoremap <C-f> :lua require("harpoon.ui").nav_file(3)<CR>
 " nnoremap <C-g> :lua require("harpoon.mark").rm_file()<CR>
 " nnoremap <leader><C-r> :lua require("harpoon.mark").shorten_list()<CR>
 " nnoremap <leader><C-d> :lua require("harpoon.mark").clear_all()<CR>

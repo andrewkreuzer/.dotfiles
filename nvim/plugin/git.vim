@@ -1,1 +1,1 @@
-nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gs :G<cr>

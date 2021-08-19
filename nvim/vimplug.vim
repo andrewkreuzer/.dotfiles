@@ -7,28 +7,30 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'arzg/vim-rust-syntax-ext'
 Plug 'mhinz/vim-signify'
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
 Plug 'puremourning/vimspector'
 Plug 'pearofducks/ansible-vim'
 Plug 'hashivim/vim-terraform'
-"Plug 'hashicorp/terraform-ls'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'ThePrimeagen/harpoon'
 
