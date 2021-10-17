@@ -3,6 +3,8 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+nnoremap <leader>r :so $MYVIMRC<CR>
+
 " nnoremap <Up> <C-y>
 " nnoremap <Down> <C-e>
 " Switch between tabs
@@ -55,4 +57,4 @@ vnoremap <leader>d "_d
 " quickfix
 nnoremap <C-Down> :cnext<CR>zz
 nnoremap <C-Up> :cprev<CR>zz
-nnoremap <C-q> :cclose<CR>
+nnoremap <C-c> :cclose<CR>

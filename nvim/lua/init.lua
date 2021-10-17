@@ -1,5 +1,4 @@
 require('plugins.lsp')
-require('plugins.nvim-compe')
 require('plugins.lspsaga')
-require('plugins.luasnip')
+require('plugins.nvim-cmp')
 require('plugins.treesitter')

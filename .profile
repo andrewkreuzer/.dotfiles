@@ -6,16 +6,21 @@ export TERMINAL="alacritty"
 export BROWSER="firefox"
 
 # Path
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="$PATH:$HOME/.config/scripts"
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.9/bin"
 export PATH="$PATH:/usr/local/bin"
+
+export PATH="$PATH:/Users/akreuzer/Library/Python/3.8/bin"
 #export PATH="$PATH:$HOME/dev/pebble/pebble-sdk-4.5-linux64/bin"
 
 export DOTFILES="$HOME/dotfiles"
 #export PATH="$PATH:/opt/miniconda3/bin"
+
+export GOPATH="$HOME/go"
 
 export ZDOTDIR="$HOME/.config/zsh"
 export ZSHRC="$ZDOTDIR/.zshrc"
@@ -38,6 +43,3 @@ export LF_ICONS="di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.clj=:*
 
 #gpgconf --launch gpg-agent
 # ^ this doesn't work for some reason??? 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

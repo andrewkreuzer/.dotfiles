@@ -20,9 +20,11 @@ set autoindent
 set cindent
 set inccommand=split
 set list
+set autochdir
+filetype plugin on          " plugins are enabled
 
-" Lua
-lua require('init')
+" Caaaarrrreeeefulllllll
+set exrc
 
 " Theme
 set termguicolors
@@ -36,3 +38,5 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
 
+" Lua
+lua require('init')
