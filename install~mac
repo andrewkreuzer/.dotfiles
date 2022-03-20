@@ -1,0 +1,16 @@
+#!/bin/bash
+
+$DISTRO=$1
+
+if [[ $DISTRO == "MacOSX" ]];then
+  FOLDERS="alacritty bin nvim starship tmux zsh"
+else
+  FOLDERS="alacritty bin bspwm gnupg nvim polybar rclone spotifyd starship sxhkd systemd_user tmux x zsh"
+fi
+
+pushd $DOTFILES
+for folder in $FOLDERS;do
+  stow -D $folder
+  stow folder
+done
+popd
