@@ -20,7 +20,6 @@ set autoindent
 set cindent
 set inccommand=split
 set list
-set autochdir
 filetype plugin on          " plugins are enabled
 
 " Caaaarrrreeeefulllllll

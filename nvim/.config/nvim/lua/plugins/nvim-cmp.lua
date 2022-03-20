@@ -1,9 +1,16 @@
-local cmp = require'cmp'
+local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 
--- for cmp-buffer
--- returns all buffers for completion search
+-- -- Get visible buffers
+-- local get_bufnrs = function()
+--   local bufs = {}
+--   for _, win in ipairs(vim.api.nvim_list_wins()) do
+--     bufs[vim.api.nvim_win_get_buf(win)] = true
+--   end
+--   return vim.tbl_keys(bufs)
+-- end
+
 local get_bufnrs = function()
   return vim.api.nvim_list_bufs()
 end
@@ -13,59 +20,39 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-cmp.setup({
-  formatting = {
-    format = lspkind.cmp_format(),
-  },
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  mapping = {
+local cmp_mappings = {
 
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      elseif has_words_before() then
-        cmp.complete()
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
+  ["<Tab>"] = cmp.mapping(function(fallback)
+    if cmp.visible() then
+      cmp.select_next_item()
+    elseif luasnip.expand_or_jumpable() then
+      luasnip.expand_or_jump()
+    elseif has_words_before() then
+      cmp.complete()
+    else
+      fallback()
+    end
+  end, { "i", "s" }),
 
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
+  ["<S-Tab>"] = cmp.mapping(function(fallback)
+    if cmp.visible() then
+      cmp.select_prev_item()
+    elseif luasnip.jumpable(-1) then
+      luasnip.jump(-1)
+    else
+      fallback()
+    end
+  end, { "i", "s" }),
 
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    })
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'buffer' },
-    { name = 'path' },
-    { name = 'tmux', opts = {
-      all_panes = true,
-    }
-  },
+  ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+  ['<c-f>'] = cmp.mapping.scroll_docs(4),
+  ['<c-space>'] = cmp.mapping.complete(),
+  ['<c-e>'] = cmp.mapping.close(),
+  ['<cr>'] = cmp.mapping.confirm({
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = true,
+  })
 }
-})
 
 local snippets_paths = function()
     local plugins = { "friendly-snippets" }
@@ -85,4 +72,49 @@ require("luasnip.loaders.from_vscode").lazy_load({
     paths = snippets_paths(),
     include = nil,  -- Load all languages
     exclude = {}
+})
+
+cmp.setup({
+  formatting = {
+    format = lspkind.cmp_format({
+      with_text = true,
+      menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[Latex]",
+      })
+    })
+  },
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+  mapping = cmp_mappings,
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+    { name = 'buffer', option = { get_bufnrs = get_bufnrs }},
+    { name = 'path' },
+    { name = 'tmux', options = {
+      all_panes = true,
+    }
+  },
+}
+})
+
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer', option = { get_bufnrs = get_bufnrs }},
+  }
+})
+
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
 })

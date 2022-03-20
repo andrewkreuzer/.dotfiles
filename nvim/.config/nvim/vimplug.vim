@@ -10,11 +10,10 @@ call plug#begin()
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-obsession'
 Plug 'arzg/vim-rust-syntax-ext'
 Plug 'mhinz/vim-signify'
-"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
 Plug 'pearofducks/ansible-vim'
 Plug 'hashivim/vim-terraform'
@@ -31,14 +30,19 @@ Plug 'rafamadriz/friendly-snippets'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'crispgm/nvim-go'
 
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
-Plug 'andersevenrud/compe-tmux', { 'branch': 'cmp' }
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'andersevenrud/compe-tmux'
 
 Plug 'ThePrimeagen/harpoon'
 

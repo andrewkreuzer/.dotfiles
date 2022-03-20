@@ -5,6 +5,7 @@ map <C-l> <C-w>l
 
 nnoremap <leader>r :so $MYVIMRC<CR>
 
+
 " nnoremap <Up> <C-y>
 " nnoremap <Down> <C-e>
 " Switch between tabs
@@ -58,3 +59,8 @@ vnoremap <leader>d "_d
 nnoremap <C-Down> :cnext<CR>zz
 nnoremap <C-Up> :cprev<CR>zz
 nnoremap <C-c> :cclose<CR>
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+nnoremap <leader>hl :nohl<CR>
