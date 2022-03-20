@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$DISTRO=$1
+DISTRO=$1
 
 if [[ $DISTRO == "MacOSX" ]];then
   FOLDERS="alacritty bin nvim starship tmux zsh"
