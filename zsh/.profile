@@ -17,7 +17,7 @@ export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/Users/akreuzer/Library/Python/3.8/bin"
 #export PATH="$PATH:$HOME/dev/pebble/pebble-sdk-4.5-linux64/bin"
 
-export DOTFILES="$HOME/dotfiles"
+export DOTFILES="$HOME/.dotfiles"
 #export PATH="$PATH:/opt/miniconda3/bin"
 
 export GOPATH="$HOME/go"
