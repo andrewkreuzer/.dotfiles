@@ -1,0 +1,9 @@
+[submodule "zsh/.config/zsh/completion/zsh-autosuggestions"]
+	path = zsh/.config/zsh/completion/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "nvim/.config/nvim/pack/monkeyc/start/vim-monkey-c"]
+	path = nvim/.config/nvim/pack/monkeyc/start/vim-monkey-c
+	url = https://github.com/tipishev/vim-monkey-c.git
+[submodule "zsh/.config/zsh/completion/zsh-completions"]
+	path = zsh/.config/zsh/completion/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git

@@ -1,8 +1,8 @@
 alias ls='ls -G'
 
 alias evr='nvim $VIMCONFIGDIR/init.vim'
-alias ezr='nvim $DOTFILES/zsh/.zshrc'
-alias edots='cd ~/dotfiles; nvim $DOTFILES'
+alias ezr='nvim $DOTFILES/zsh/.config/zsh/.zshrc'
+alias edots='nvim $DOTFILES'
 
 # change from alacritty $TERM
 alias ssh='TERM=xterm-256color ssh'
