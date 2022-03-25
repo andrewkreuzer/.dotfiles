@@ -32,6 +32,8 @@ setopt COMPLETE_IN_WORD
 fpath=(~/.config/zsh/completion/zsh-completions/src/ $fpath)
 source ~/.config/zsh/completion/zsh-autosuggestions/zsh-autosuggestions.zsh
 source <(kubectl completion zsh)
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
 
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
