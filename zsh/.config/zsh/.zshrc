@@ -4,6 +4,9 @@
 # for i in $(seq 1 10); do time /bin/zsh -i -c exit; done;
 # uncomment this and run zprof after initialized
 # zmodload zsh/zprof
+
+# Shared history
+setopt share_history
 export HISTFILE="$HOME/.cache/zsh/history"
 
 # Load aliases and shortcuts if existent.
@@ -43,14 +46,8 @@ bindkey -M menuselect 'l' vi-forward-char
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey '^[[A' history-beginning-search-backward-end
-bindkey '^[[B' history-beginning-search-forward-end
-# vi keybinds
-bindkey -M vicmd 'k' history-beginning-search-backward-end
-bindkey -M vicmd 'j' history-beginning-search-forward-end
-
-# Shared history
-setopt share_history
+bindkey "$key[Up]" history-beginning-search-backward-end
+bindkey "$key[Down]" history-beginning-search-forward-end
 
 bindkey -v
 
@@ -61,6 +58,7 @@ eval "$(starship init zsh)"
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
 autoload -U +X bashcompinit && bashcompinit
