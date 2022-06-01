@@ -5,7 +5,7 @@ function! ActiveStatus()
   let statusline.="%2*"
   let statusline.=""
   let statusline.="%3*"
-  let statusline.="%{fugitive#head()!=''?'\ \ '.fugitive#head().'\ ':''}"
+  let statusline.="%{FugitiveHead()!=''?'\ \ '.FugitiveHead().'\ ':''}"
   let statusline.="%4*"
   let statusline.=""
   let statusline.="%5*"
@@ -33,7 +33,7 @@ endfunction
 function! InactiveStatus()
   let statusline=""
   let statusline.="%(%{'help'!=&filetype?'\ \ '.bufnr('%').'\ \ ':'\ '}%)"
-  let statusline.="%{fugitive#head()!=''?'\ \ '.fugitive#head().'\ ':'\ '}"
+  let statusline.="%{FugitiveHead()!=''?'\ \ '.FugitiveHead().'\ ':'\ '}"
   let statusline.="\ %<"
   let statusline.="%f"
   let statusline.="%{&modified?'\ \ +':''}"
