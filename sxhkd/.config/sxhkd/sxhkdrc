@@ -17,7 +17,7 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # End Session
-super + Escape 
+super + Escape
 	bspc quit
 
 # terminal
@@ -28,8 +28,8 @@ super + Return
 super + f
 	firefox
 
-# virtualbox 
-super + v 
+# virtualbox
+super + v
   virtualbox
 
 # scratchpad_left

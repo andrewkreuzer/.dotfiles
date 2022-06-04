@@ -35,10 +35,27 @@ end
 
 nvim_lsp.tsserver.setup(config())
 nvim_lsp.pyright.setup(config())
-nvim_lsp.rust_analyzer.setup(config())
 nvim_lsp.terraformls.setup(config())
 nvim_lsp.tflint.setup(config())
 nvim_lsp.jsonls.setup(config())
+
+nvim_lsp.rust_analyzer.setup({
+    on_attach=on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            assist = {
+                importGranularity = "module",
+                importPrefix = "self",
+            },
+            cargo = {
+                loadOutDirsFromCheck = true
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
 
 nvim_lsp.clangd.setup(config({
     cmd = { "clangd", "--background-index", "--clang-tidy" },

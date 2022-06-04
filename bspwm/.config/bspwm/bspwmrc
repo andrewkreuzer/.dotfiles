@@ -58,8 +58,8 @@ bspc rule -a scratchpad_right monitor=DVI-I-1 \
 
 pkill -f scratchpad_left
 pkill -f scratchpad_right
-alacritty --class Alacritty,scratchpad_left -e "$HOME/.config/scripts/bspwm_scratchpad_left.sh" &
-alacritty --class Alacritty,scratchpad_right -e "$HOME/.config/scripts/bspwm_scratchpad_right.sh" &
+alacritty --class Alacritty,scratchpad_left -e "$HOME/.local/bin/bspwm_scratchpad_left.sh" &
+alacritty --class Alacritty,scratchpad_right -e "$HOME/.local/bin/bspwm_scratchpad_right.sh" &
 
 # Background
 feh --no-fehbg --bg-fill ~/.config/background.jpg

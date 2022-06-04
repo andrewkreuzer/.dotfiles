@@ -64,4 +64,3 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 nnoremap <leader>hl :nohl<CR>
-nnoremap <leader>jj :vsplit term://zsh<CR>a
