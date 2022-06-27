@@ -1,7 +1,0 @@
-require('plugins.lsp')
-require('plugins.lspsaga')
-require('plugins.nvim-cmp')
-require('plugins.treesitter')
-require('plugins.harpoon')
-require('plugins.nvim-tree')
-require('plugins.nvim-go')

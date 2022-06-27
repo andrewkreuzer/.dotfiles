@@ -8,7 +8,7 @@ local on_attach = function(client, bufnr)
 
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  -- buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
@@ -62,16 +62,9 @@ nvim_lsp.clangd.setup(config({
     root_dir = function() return vim.loop.cwd() end
 }))
 
-local go = require('go')
-go.setup({
-  test_popup_height = 20,
-})
-go.config.update_tool('quicktype', function(tool)
-    tool.pkg_mgr = 'npm'
-end)
 nvim_lsp.gopls.setup(config({}))
 
-local lls_binary = vim.env.HOME .. '/pkgs/lua-language-server/bin/macOS/lua-language-server'
+local lls_binary = '/usr/local/lib/lua-language-server/bin/lua-language-server'
 nvim_lsp.sumneko_lua.setup(config({
     cmd = {lls_binary};
     settings = {
