@@ -18,6 +18,7 @@ export PATH="$PATH:$HOME/dev/android/tools/"
 #export PATH="$PATH:$HOME/dev/pebble/pebble-sdk-4.5-linux64/bin"
 #export PATH="$PATH:/opt/miniconda3/bin"
 
+export XDG_CONFIG_HOME="$HOME/.config"
 export DOTFILES="$HOME/.dotfiles"
 export GOPATH="$HOME/go"
 export PATH=$PATH:$HOME/.pulumi/bin

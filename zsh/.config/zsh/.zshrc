@@ -13,6 +13,9 @@ export HISTFILE="$HOME/.cache/zsh/history"
 [ -f "$HOME/.config/zsh/zsh_shortcuts" ] && source "$HOME/.config/zsh/zsh_shortcuts"
 [ -f "$HOME/.config/zsh/zsh_alias" ] && source "$HOME/.config/zsh/zsh_alias"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 autoload -Uz compinit
 compinit -d $HOME/.cache/zsh/zcompdump
 zstyle ':completion:*' completer _complete _correct _approximate

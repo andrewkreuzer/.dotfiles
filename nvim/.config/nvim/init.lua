@@ -1,9 +1,9 @@
 local opt = require('andrewkreuzer.utils').opt
 local cmd = vim.cmd
 
-cmd [[ syntax enable ]]
-cmd [[ hi Visual cterm=reverse ctermbg=NONE ]]
-cmd [[ hi ColorColumn ctermbg=0 guibg=lightgrey ]]
+cmd([[ syntax enable ]])
+cmd([[ hi Visual cterm=reverse ctermbg=NONE ]])
+cmd([[ hi ColorColumn ctermbg=0 guibg=lightgrey ]])
 opt('colorcolumn', '80')
 opt('number')
 opt('relativenumber')
@@ -23,11 +23,11 @@ opt('expandtab')
 opt('autoindent')
 opt('cindent')
 opt('list')
-cmd [[ filetype plugin on ]]
+cmd([[ filetype plugin on ]])
 
 opt('termguicolors')
-cmd [[ let ayucolor='dark' ]]
-cmd [[colorscheme ayu]]
+cmd([[let ayucolor='dark' ]])
+cmd([[colorscheme ayu]])
 
 vim.g.mapleader = [[ ]]
 
