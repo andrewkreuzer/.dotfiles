@@ -1,4 +1,4 @@
-local nmap = require('utils').nmap
+local nmap = require('andrewkreuzer.utils').nmap
 nmap('<leader>sw', "<cmd>:lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
 nmap('<leader>ss', "<cmd>:lua require('telescope.builtin').live_grep()<CR>")
 nmap('<leader>sg', "<cmd>:lua require('telescope.builtin').git_files()<CR>")

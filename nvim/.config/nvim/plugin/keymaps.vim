@@ -3,9 +3,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-nnoremap <leader>r :so $MYVIMRC<CR>
-
-
 " nnoremap <Up> <C-y>
 " nnoremap <Down> <C-e>
 " Switch between tabs

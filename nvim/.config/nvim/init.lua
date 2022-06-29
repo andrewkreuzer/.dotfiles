@@ -1,4 +1,4 @@
-local opt = require('utils').opt
+local opt = require('andrewkreuzer.utils').opt
 local cmd = vim.cmd
 
 cmd [[ syntax enable ]]
@@ -46,4 +46,5 @@ autocmd('TextYankPost', {
     end,
 })
 
-require('plugins')
+require('andrewkreuzer.plugins')
+require('andrewkreuzer.config.init')
