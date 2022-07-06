@@ -1,5 +1,7 @@
 export LANG="en_US.UTF-8"
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="alacritty"
@@ -13,8 +15,10 @@ export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="$PATH:$HOME/.config/scripts"
 export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:$HOME/dev/android/tools/platform-tools/"
-export PATH="$PATH:$HOME/dev/android/tools/"
+export PATH="$PATH:/opt/android-studio/bin"
+export PATH="$PATH:$HOME/Android/Sdk/platform-tools/"
+GARMIN_SDK=$(cat $HOME/.Garmin/ConnectIQ/current-sdk.cfg)
+export PATH="$PATH:$GARMIN_SDK/bin"
 #export PATH="$PATH:$HOME/dev/pebble/pebble-sdk-4.5-linux64/bin"
 #export PATH="$PATH:/opt/miniconda3/bin"
 

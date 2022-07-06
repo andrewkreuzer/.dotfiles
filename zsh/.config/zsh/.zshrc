@@ -63,3 +63,4 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/d
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+. <(flux completion zsh)

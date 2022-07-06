@@ -1,4 +1,5 @@
-alias ls='ls -G'
+alias ls='ls -C --group-directories-first --color=auto'
+alias lsa='ls -a'
 
 alias evr='nvim $VIMCONFIGDIR/init.vim'
 alias ezr='nvim $DOTFILES/zsh/.config/zsh/.zshrc'

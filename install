@@ -2,11 +2,7 @@
 
 DISTRO=$1
 
-if [[ $DISTRO == "MacOSX" ]];then
-  FOLDERS="alacritty bin nvim starship tmux zsh"
-else
-  FOLDERS="alacritty bin bspwm gnupg nvim polybar rclone spotifyd starship sxhkd systemd_user tmux x zsh"
-fi
+FOLDERS="alacritty bin bspwm gnupg nvim polybar rclone spotifyd starship sxhkd systemd_user tmux x zsh"
 
 pushd $DOTFILES
 for folder in $FOLDERS;do
