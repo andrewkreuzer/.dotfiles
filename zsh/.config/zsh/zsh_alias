@@ -1,7 +1,7 @@
 alias ls='ls -C --group-directories-first --color=auto'
 alias lsa='ls -a'
 
-alias evr='nvim $VIMCONFIGDIR/init.vim'
+alias evr='nvim $VIMCONFIGDIR/init.lua'
 alias ezr='nvim $DOTFILES/zsh/.config/zsh/.zshrc'
 alias edots='cd $DOTFILES && nvim .'
 
@@ -11,9 +11,6 @@ alias ssh='TERM=xterm-256color ssh'
 # history search
 alias hs='history | grep --color'
 alias notes='nvim ~/Documents/notes'
-
-# ecr login
-alias mobials/ecr/login='aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 456969868172.dkr.ecr.us-east-1.amazonaws.com'
 
 # TheFuck alias
 eval $(thefuck --alias)
