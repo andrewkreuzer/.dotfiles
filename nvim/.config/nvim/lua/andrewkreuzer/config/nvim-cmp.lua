@@ -1,6 +1,7 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
+require("luasnip.loaders.from_vscode").lazy_load()
 
 -- -- Get visible buffers
 -- local get_bufnrs = function()
@@ -10,6 +11,7 @@ local luasnip = require('luasnip')
 --   end
 --   return vim.tbl_keys(bufs)
 -- end
+
 
 local get_bufnrs = function()
   return vim.api.nvim_list_bufs()

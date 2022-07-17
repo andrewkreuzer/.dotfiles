@@ -1,6 +1,5 @@
 local nvim_lsp = require('lspconfig')
 
-
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -24,7 +23,14 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
+  buf_set_option("formatexpr", "v:lua.vim.lsp.formatexpr()")
+	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+	buf_set_option("tagfunc", "v:lua.vim.lsp.tagfunc")
 end
+
+require("nvim-lsp-installer").setup({
+    automatic_installation = true
+})
 
 local function config(_config)
     return vim.tbl_deep_extend("force", {
@@ -38,9 +44,14 @@ nvim_lsp.pyright.setup(config())
 nvim_lsp.terraformls.setup(config())
 nvim_lsp.tflint.setup(config())
 nvim_lsp.jsonls.setup(config())
+nvim_lsp.svelte.setup(config())
+nvim_lsp.taplo.setup(config())
+nvim_lsp.bashls.setup(config())
+nvim_lsp.dockerls.setup(config())
+nvim_lsp.yamlls.setup(config())
+nvim_lsp.html.setup(config())
 
 nvim_lsp.rust_analyzer.setup({
-    on_attach=on_attach,
     settings = {
         ["rust-analyzer"] = {
             assist = {
@@ -62,7 +73,22 @@ nvim_lsp.clangd.setup(config({
     root_dir = function() return vim.loop.cwd() end
 }))
 
-nvim_lsp.gopls.setup(config({}))
+nvim_lsp.gopls.setup(config({
+  cmd = {'gopls'},
+  settings = {
+    gopls = {
+      experimentalPostfixCompletions = true,
+      analyses = {
+        unusedparams = true,
+        shadow = true,
+      },
+      staticcheck = true,
+    },
+  },
+  init_options = {
+    usePlaceholders = true,
+  }
+}))
 
 local lls_binary = '/usr/local/lib/lua-language-server/bin/lua-language-server'
 nvim_lsp.sumneko_lua.setup(config({

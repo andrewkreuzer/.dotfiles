@@ -5,7 +5,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="alacritty"
-export BROWSER="firefox"
+export BROWSER="brave-browser-nightly"
 export TERM="xterm-256color"
 
 # Path

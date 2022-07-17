@@ -35,11 +35,12 @@ zstyle :compinstall filename '/home/akreuzer/.config/zsh/.zshrc'
 setopt LIST_PACKED
 setopt COMPLETE_IN_WORD
 
-fpath=(~/.config/zsh/completion/zsh-completions/src/ $fpath)
-source ~/.config/zsh/completion/zsh-autosuggestions/zsh-autosuggestions.zsh
-source <(kubectl completion zsh)
-autoload -U +X bashcompinit && bashcompinit
+autoload -U +X bashcompinit && bashcompinit -d $HOME/.cache/zsh/bashcompdump
 complete -o nospace -C /usr/local/bin/terraform terraform
+fpath=(~/.config/zsh/completion/zsh-completions/src/ $fpath)
+. ~/.config/zsh/completion/zsh-autosuggestions/zsh-autosuggestions.zsh
+. <(kubectl completion zsh)
+. <(flux completion zsh)
 
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
@@ -54,16 +55,8 @@ bindkey "$key[Down]" history-beginning-search-forward-end
 
 bindkey -v
 
-# Load zoxide
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
-
 # Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
-. <(flux completion zsh)

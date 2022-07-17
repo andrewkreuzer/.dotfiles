@@ -12,5 +12,7 @@ alias ssh='TERM=xterm-256color ssh'
 alias hs='history | grep --color'
 alias notes='nvim ~/Documents/notes'
 
+alias gen-pass='openssl rand -base64 32'
+
 # TheFuck alias
 eval $(thefuck --alias)
