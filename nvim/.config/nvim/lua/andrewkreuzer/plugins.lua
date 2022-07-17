@@ -11,11 +11,13 @@ return require('packer').startup(function(use)
   use 'tpope/vim-commentary'
   use 'tpope/vim-obsession'
   use 'tpope/vim-fugitive'
+  -- use 'tpope/vim-rsi'
   use 'ThePrimeagen/harpoon'
   use 'mbbill/undotree'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
   use 'neovim/nvim-lspconfig'
+  use "williamboman/nvim-lsp-installer"
   use 'onsails/lspkind-nvim'
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
