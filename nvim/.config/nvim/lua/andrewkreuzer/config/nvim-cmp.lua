@@ -4,18 +4,18 @@ local luasnip = require('luasnip')
 require("luasnip.loaders.from_vscode").lazy_load()
 
 -- -- Get visible buffers
--- local get_bufnrs = function()
---   local bufs = {}
---   for _, win in ipairs(vim.api.nvim_list_wins()) do
---     bufs[vim.api.nvim_win_get_buf(win)] = true
---   end
---   return vim.tbl_keys(bufs)
--- end
-
-
 local get_bufnrs = function()
-  return vim.api.nvim_list_bufs()
+  local bufs = {}
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    bufs[vim.api.nvim_win_get_buf(win)] = true
+  end
+  return vim.tbl_keys(bufs)
 end
+
+
+-- local get_bufnrs = function()
+--   return vim.api.nvim_list_bufs()
+-- end
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
