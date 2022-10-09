@@ -8,6 +8,7 @@ map <C-l> <C-w>l
 " Switch between tabs
 nnoremap <Right> gt
 nnoremap <Left>  gT
+nnoremap <leader>tc :tabclose<CR>
 
 " Change cwd to buffer
 nnoremap <Leader>dj :lcd %:p:h<CR>

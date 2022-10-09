@@ -1,6 +1,9 @@
 local opt = require('andrewkreuzer.utils').opt
 local cmd = vim.cmd
 
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
 cmd([[ syntax enable ]])
 cmd([[ hi Visual cterm=reverse ctermbg=NONE ]])
 cmd([[ hi ColorColumn ctermbg=0 guibg=lightgrey ]])

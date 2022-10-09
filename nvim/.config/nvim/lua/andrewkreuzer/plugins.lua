@@ -22,27 +22,37 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
   use 'glepnir/lspsaga.nvim'
-  use { 'TimUntersberger/neogit',
+
+  use { 'lewis6991/gitsigns.nvim' }
+  use { 'sindrets/diffview.nvim',
     requires = 'nvim-lua/plenary.nvim'
   }
-  use { 'lewis6991/gitsigns.nvim' }
+  use { 'TimUntersberger/neogit',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim'
+    }
+  }
 
   use {
   'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = {'nvim-lua/plenary.nvim'}
   }
   use 'nvim-telescope/telescope-fzy-native.nvim'
 
-  use 'kyazdani42/nvim-web-devicons'
-  use 'kyazdani42/nvim-tree.lua'
+  use { 'kyazdani42/nvim-tree.lua',
+    requires = { 'nvim-tree/nvim-web-devicons' }
+  }
 
   use 'nvim-treesitter/playground'
   use { 'nvim-treesitter/nvim-treesitter',
     run= ':TSUpdate'
   }
-  use { 'iamcco/markdown-preview.nvim',
-    run = function() vim.fn["mkdp#util#install"]() end,
-  }
+  use({ "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  })
 
   -- Languages
   use 'hashivim/vim-terraform'

@@ -13,7 +13,6 @@ nmap('<leader>tl', "<cmd>lua require('harpoon.term').gotoTerminal(3)<CR>")
 nmap('<leader>t;', "<cmd>lua require('harpoon.term').gotoTerminal(4)<CR>")
 
 nmap('<leader>jj', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")
-nmap('<leader>', "<cmd>lua require('harpoon.term').gotoTerminal(4)<CR>")
 -- nnoremap <leader>ha :lua require("harpoon.mark").add_file()<CR>
 -- nnoremap <leader>hr :lua require("harpoon.mark").rm_file()<CR>
 -- nnoremap <C-a> :lua require("harpoon.ui").nav_file(1)<CR>
