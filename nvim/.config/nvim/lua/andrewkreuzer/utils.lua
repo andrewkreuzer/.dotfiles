@@ -8,11 +8,11 @@ M.opt = function(o, v)
 end
 
 M.nmap = function(keys, cmds)
-  vim.api.nvim_set_keymap('n', keys, cmds, { noremap = true, silent = true })
+  vim.keymap.set('n', keys, cmds, { noremap = true, silent = true })
 end
 
 M.imap = function(keys, cmds)
-  vim.api.nvim_set_keymap('i', keys, cmds, { noremap = true, silent = true })
+  vim.keymap.set('i', keys, cmds, { noremap = true, silent = true })
 end
 
 return M

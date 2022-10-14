@@ -7,59 +7,26 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- use 'tpope/vim-rsi'
-
-  use 'tpope/vim-surround'
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-obsession'
-  use 'tpope/vim-fugitive'
-  use 'ThePrimeagen/harpoon'
-  use 'mbbill/undotree'
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-lua/popup.nvim'
-  use 'neovim/nvim-lspconfig'
+  -- LSP
   use "williamboman/nvim-lsp-installer"
+  use 'neovim/nvim-lspconfig'
   use 'onsails/lspkind-nvim'
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
-  use 'simrat39/rust-tools.nvim'
-
-  use { 'lewis6991/gitsigns.nvim' }
-  use { 'TimUntersberger/neogit',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'sindrets/diffview.nvim'
-    }
-  }
-
-  use {
-  'nvim-telescope/telescope.nvim',
-    requires = {'nvim-lua/plenary.nvim'}
-  }
-  use 'nvim-telescope/telescope-fzy-native.nvim'
-
-  use { 'kyazdani42/nvim-tree.lua',
-    requires = { 'nvim-tree/nvim-web-devicons' }
-  }
-
   use 'nvim-treesitter/playground'
   use { 'nvim-treesitter/nvim-treesitter',
     run= ':TSUpdate'
   }
-  use({ "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-    ft = { "markdown" },
-  })
+
 
   -- Languages
   use 'hashivim/vim-terraform'
-
+  use 'simrat39/rust-tools.nvim'
   use 'ray-x/go.nvim'
   use 'ray-x/guihua.lua'
-
   use 'leafgarland/typescript-vim'
   use 'pangloss/vim-javascript'
+
 
   -- Completion
   use 'hrsh7th/nvim-cmp'
@@ -68,8 +35,45 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'petertriho/cmp-git'
+  use "lukas-reineke/cmp-rg"
   use 'andersevenrud/compe-tmux'
   use 'saadparwaiz1/cmp_luasnip'
+
+
+  -- Mr. T. Pope
+  use 'tpope/vim-surround'
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-obsession'
+  use 'tpope/vim-fugitive'
+  -- use 'tpope/vim-rsi'
+
+  -- Twitch Rivals
+  use 'ThePrimeagen/harpoon'
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-lua/popup.nvim'
+  use {
+  'nvim-telescope/telescope.nvim',
+    requires = {'nvim-lua/plenary.nvim'}
+  }
+  use 'nvim-telescope/telescope-fzy-native.nvim'
+
+  -- Utils
+  use 'mbbill/undotree'
+  use { 'lewis6991/gitsigns.nvim' }
+  use { 'TimUntersberger/neogit',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim'
+    }
+  }
+  use { 'kyazdani42/nvim-tree.lua',
+    requires = { 'nvim-tree/nvim-web-devicons' }
+  }
+  use({ "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  })
 
 
  -- Themes

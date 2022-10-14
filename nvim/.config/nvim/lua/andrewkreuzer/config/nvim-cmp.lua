@@ -78,14 +78,7 @@ require("luasnip.loaders.from_vscode").lazy_load({
 cmp.setup({
   formatting = {
     format = lspkind.cmp_format({
-      with_text = true,
-      menu = ({
-        buffer = "[Buffer]",
-        nvim_lsp = "[LSP]",
-        luasnip = "[LuaSnip]",
-        nvim_lua = "[Lua]",
-        latex_symbols = "[Latex]",
-      })
+      mode = 'symbol_text',
     })
   },
   snippet = {
@@ -99,7 +92,6 @@ cmp.setup({
     { name = 'luasnip' },
     { name = 'buffer', option = { get_bufnrs = get_bufnrs }},
     { name = 'path' },
-    { name = 'git' },
     { name = 'tmux', options = {
       all_panes = true,
     }
@@ -110,7 +102,6 @@ cmp.setup({
   cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
       { name = 'git' },
-    }, {
       { name = 'buffer' },
     })
   })
@@ -118,15 +109,15 @@ cmp.setup({
   cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-      { name = 'buffer' }
+      { name = 'rg' },
+      { name = 'buffer' },
     }
   })
 
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
+      { name = 'path' },
+      { name = 'cmdline' },
     })
   })
