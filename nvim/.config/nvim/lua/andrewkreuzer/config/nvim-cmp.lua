@@ -12,7 +12,6 @@ local get_bufnrs = function()
   return vim.tbl_keys(bufs)
 end
 
-
 -- local get_bufnrs = function()
 --   return vim.api.nvim_list_bufs()
 -- end
@@ -100,6 +99,7 @@ cmp.setup({
     { name = 'luasnip' },
     { name = 'buffer', option = { get_bufnrs = get_bufnrs }},
     { name = 'path' },
+    { name = 'git' },
     { name = 'tmux', options = {
       all_panes = true,
     }
@@ -107,16 +107,26 @@ cmp.setup({
 }
 })
 
-cmp.setup.cmdline('/', {
-  sources = {
-    { name = 'buffer', option = { get_bufnrs = get_bufnrs }},
-  }
-})
-
-cmp.setup.cmdline(':', {
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
+  cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+      { name = 'git' },
+    }, {
+      { name = 'buffer' },
+    })
   })
-})
+
+  cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })

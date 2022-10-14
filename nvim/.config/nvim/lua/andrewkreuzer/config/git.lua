@@ -1,5 +1,5 @@
 require('gitsigns').setup()
--- require("diffview").setup()
+require("diffview").setup()
 
 require('neogit').setup {
   kind = "split_above",

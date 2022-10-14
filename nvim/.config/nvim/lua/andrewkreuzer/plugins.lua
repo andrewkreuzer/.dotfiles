@@ -7,11 +7,12 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  -- use 'tpope/vim-rsi'
+
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
   use 'tpope/vim-obsession'
   use 'tpope/vim-fugitive'
-  -- use 'tpope/vim-rsi'
   use 'ThePrimeagen/harpoon'
   use 'mbbill/undotree'
   use 'nvim-lua/plenary.nvim'
@@ -21,7 +22,7 @@ return require('packer').startup(function(use)
   use 'onsails/lspkind-nvim'
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
-  use 'glepnir/lspsaga.nvim'
+  use 'simrat39/rust-tools.nvim'
 
   use { 'lewis6991/gitsigns.nvim' }
   use { 'TimUntersberger/neogit',
@@ -66,6 +67,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
+  use 'petertriho/cmp-git'
   use 'andersevenrud/compe-tmux'
   use 'saadparwaiz1/cmp_luasnip'
 
