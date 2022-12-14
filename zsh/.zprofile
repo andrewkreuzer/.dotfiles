@@ -16,6 +16,7 @@ export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="$PATH:$HOME/.config/scripts"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/opt/android-studio/bin"
+export PATH="$PATH:/opt/idea/bin"
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools/"
 GARMIN_SDK=$(cat $HOME/.Garmin/ConnectIQ/current-sdk.cfg)
 export PATH="$PATH:$GARMIN_SDK/bin"

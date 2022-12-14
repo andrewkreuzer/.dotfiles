@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
   use 'ray-x/guihua.lua'
   use 'leafgarland/typescript-vim'
   use 'pangloss/vim-javascript'
+  use 'jparise/vim-graphql'
 
 
   -- Completion
@@ -38,7 +39,16 @@ return require('packer').startup(function(use)
   use "lukas-reineke/cmp-rg"
   use 'andersevenrud/compe-tmux'
   use 'saadparwaiz1/cmp_luasnip'
-
+  use {
+    'tzachar/cmp-tabnine',
+    run='./install.sh',
+    requires = 'hrsh7th/nvim-cmp'
+  }
+  use 'github/copilot.vim'
+  use {
+    'hrsh7th/cmp-copilot',
+    requires = 'hrsh7th/nvim-cmp'
+  }
 
   -- Mr. T. Pope
   use 'tpope/vim-surround'

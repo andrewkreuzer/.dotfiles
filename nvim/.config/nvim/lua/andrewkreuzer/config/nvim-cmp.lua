@@ -76,10 +76,39 @@ require("luasnip.loaders.from_vscode").lazy_load({
 })
 
 cmp.setup({
+  window = {
+    completion = {
+      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+      col_offset = -3,
+      side_padding = 0,
+    },
+  },
   formatting = {
-    format = lspkind.cmp_format({
-      mode = 'symbol_text',
-    })
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      local kind = lspkind.cmp_format({
+        mode = "symbol_text",
+        menu = ({
+          nvim_lsp = "LSP",
+          luasnip = "LuaSnip",
+          buffer = "Buffer",
+          path = "Path",
+          cmp_tabnine = "TabNine",
+          copilot = "Copilot",
+          tmux = "Tmux",
+        }),
+        maxwidth = 50
+      })(entry, vim_item)
+      local strings = vim.split(kind.kind, "%s", { trimempty = true })
+      kind.kind = " " .. strings[1] .. " "
+      if kind.menu ~= nil then
+        kind.menu = "    " .. strings[2] .. "(" .. kind.menu .. ")"
+      else
+        kind.menu =  "    " .. strings[2]
+      end
+
+      return kind
+    end,
   },
   snippet = {
     expand = function(args)
@@ -92,6 +121,8 @@ cmp.setup({
     { name = 'luasnip' },
     { name = 'buffer', option = { get_bufnrs = get_bufnrs }},
     { name = 'path' },
+    { name = 'cmp_tabnine' },
+    { name = 'copilot' },
     { name = 'tmux', options = {
       all_panes = true,
     }
@@ -99,25 +130,25 @@ cmp.setup({
 }
 })
 
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'git' },
-      { name = 'buffer' },
-    })
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'git' },
+    { name = 'buffer' },
   })
+})
 
-  cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'rg' },
-      { name = 'buffer' },
-    }
-  })
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'rg' },
+    { name = 'buffer' },
+  }
+})
 
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' },
-      { name = 'cmdline' },
-    })
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' },
+    { name = 'cmdline' },
   })
+})

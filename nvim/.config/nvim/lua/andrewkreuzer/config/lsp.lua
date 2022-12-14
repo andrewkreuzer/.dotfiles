@@ -34,11 +34,14 @@ require("nvim-lsp-installer").setup({
 local function config(_config)
     return vim.tbl_deep_extend("force", {
       on_attach = on_attach,
-      capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+      capabilities = require('cmp_nvim_lsp')
+        .default_capabilities(vim.lsp.protocol.make_client_capabilities())
     }, _config or {})
 end
 
-require("rust-tools").setup(config())
+require("rust-tools").setup({
+  server = config()
+})
 nvim_lsp.tsserver.setup(config())
 nvim_lsp.pyright.setup(config())
 nvim_lsp.terraformls.setup(config())
@@ -49,6 +52,7 @@ nvim_lsp.bashls.setup(config())
 nvim_lsp.dockerls.setup(config())
 nvim_lsp.yamlls.setup(config())
 nvim_lsp.html.setup(config())
+nvim_lsp.graphql.setup{}
 
 
 nvim_lsp.clangd.setup(config({
