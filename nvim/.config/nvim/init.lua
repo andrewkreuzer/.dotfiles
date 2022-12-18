@@ -51,4 +51,3 @@ autocmd('TextYankPost', {
 })
 
 require('andrewkreuzer.plugins')
-require('andrewkreuzer.config.init')

@@ -7,17 +7,43 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- LSP
-  use "williamboman/nvim-lsp-installer"
-  use 'neovim/nvim-lspconfig'
-  use 'onsails/lspkind-nvim'
-  use 'L3MON4D3/LuaSnip'
-  use 'rafamadriz/friendly-snippets'
-  use 'nvim-treesitter/playground'
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      {'williamboman/mason.nvim'},
+      {'williamboman/mason-lspconfig.nvim'},
+      {'onsails/lspkind-nvim'},
+
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'saadparwaiz1/cmp_luasnip'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-nvim-lua'},
+      {'hrsh7th/cmp-cmdline'},
+      {'petertriho/cmp-git'},
+      {'lukas-reineke/cmp-rg'},
+      {'andersevenrud/compe-tmux'},
+      {'github/copilot.vim'},
+      {'hrsh7th/cmp-copilot'},
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+      {'rafamadriz/friendly-snippets'},
+    }
+  }
+  use {
+    'tzachar/cmp-tabnine',
+    run='./install.sh',
+  }
+
   use { 'nvim-treesitter/nvim-treesitter',
     run= ':TSUpdate'
   }
-
+  use 'nvim-treesitter/playground'
 
   -- Languages
   use 'hashivim/vim-terraform'
@@ -28,27 +54,6 @@ return require('packer').startup(function(use)
   use 'pangloss/vim-javascript'
   use 'jparise/vim-graphql'
 
-
-  -- Completion
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'petertriho/cmp-git'
-  use "lukas-reineke/cmp-rg"
-  use 'andersevenrud/compe-tmux'
-  use 'saadparwaiz1/cmp_luasnip'
-  use {
-    'tzachar/cmp-tabnine',
-    run='./install.sh',
-    requires = 'hrsh7th/nvim-cmp'
-  }
-  use 'github/copilot.vim'
-  use {
-    'hrsh7th/cmp-copilot',
-    requires = 'hrsh7th/nvim-cmp'
-  }
 
   -- Mr. T. Pope
   use 'tpope/vim-surround'
@@ -70,12 +75,6 @@ return require('packer').startup(function(use)
   -- Utils
   use 'mbbill/undotree'
   use { 'lewis6991/gitsigns.nvim' }
-  use { 'TimUntersberger/neogit',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'sindrets/diffview.nvim'
-    }
-  }
   use { 'kyazdani42/nvim-tree.lua',
     requires = { 'nvim-tree/nvim-web-devicons' }
   }

@@ -7,17 +7,11 @@
 
 # Shared history
 setopt share_history
-export HISTFILE="$HOME/.cache/zsh/history"
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/zsh/zsh_shortcuts" ] && source "$HOME/.config/zsh/zsh_shortcuts"
 [ -f "$HOME/.config/zsh/zsh_alias" ] && source "$HOME/.config/zsh/zsh_alias"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-autoload -Uz compinit
-compinit -d $HOME/.cache/zsh/zcompdump
 zstyle ':completion:*' completer _complete _correct _approximate
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -34,6 +28,8 @@ zstyle ':completion:*' file-sort access
 zstyle :compinstall filename '/home/akreuzer/.config/zsh/.zshrc'
 setopt LIST_PACKED
 setopt COMPLETE_IN_WORD
+autoload -Uz compinit
+compinit -d $HOME/.cache/zsh/zcompdump
 
 autoload -U +X bashcompinit && bashcompinit -d $HOME/.cache/zsh/bashcompdump
 complete -o nospace -C /usr/local/bin/terraform terraform
