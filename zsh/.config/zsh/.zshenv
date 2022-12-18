@@ -19,13 +19,10 @@ fi
 
 export DOTFILES="$HOME/.dotfiles"
 export GOPATH="$HOME/go"
-export ZDOTDIR="$HOME/.config/zsh"
-export ZSHRC="$ZDOTDIR/.zshrc"
 export HISTFILE="$HOME/.cache/zsh/history"
 export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
 export GO111MODULE=on
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 export SDKMAN_DIR="$HOME/.sdkman"

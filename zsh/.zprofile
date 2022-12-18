@@ -8,6 +8,10 @@ export TERMINAL="alacritty"
 export BROWSER="brave-browser"
 export TERM="xterm-256color"
 
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+export ZDOTDIR="$HOME/.config/zsh"
+export ZSHRC="$ZDOTDIR/.zshrc"
+
 # gpg-agent
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
