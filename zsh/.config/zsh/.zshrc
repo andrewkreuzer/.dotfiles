@@ -54,5 +54,11 @@ bindkey -v
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
+function hist() {
+  echo $1 >> $HOME/.cache/history.log
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec hist
+
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
