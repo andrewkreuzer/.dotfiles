@@ -3,7 +3,7 @@ local lspkind = require('lspkind')
 
 lsp.preset('recommended')
 
-lsp.on_attach(function(client, bufnr)
+local function on_attach(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -24,7 +24,8 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
-)
+
+lsp.on_attach(on_attach)
 
 lsp.ensure_installed({
   'html',
@@ -91,7 +92,12 @@ lsp.setup_nvim_cmp({
 
 lsp.setup()
 
-require("rust-tools").setup()
+require("rust-tools").setup({
+  server = {
+    on_attach = on_attach,
+    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+  },
+})
 
 local cmp = require('cmp')
 cmp.setup.filetype('gitcommit', {

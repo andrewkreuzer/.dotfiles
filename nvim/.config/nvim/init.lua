@@ -12,6 +12,7 @@ opt('mouse', 'a')
 opt('number')
 opt('relativenumber')
 opt('wrap', false)
+opt('hlsearch', false)
 opt('incsearch')
 opt('ignorecase')
 opt('hidden')
@@ -34,6 +35,11 @@ cmd([[let ayucolor='dark' ]])
 cmd([[colorscheme ayu]])
 
 vim.g.mapleader = [[ ]]
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd

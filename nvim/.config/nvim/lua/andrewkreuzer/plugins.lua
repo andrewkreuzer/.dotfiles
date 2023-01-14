@@ -85,11 +85,12 @@ return require('packer').startup(function(use)
   })
 
 
- -- Themes
+   -- Themes
    use 'gruvbox-community/gruvbox'
    use 'ayu-theme/ayu-vim'
    use 'drewtempelmeyer/palenight.vim'
 
+   use 'eandrju/cellular-automaton.nvim'
 
   if packer_bootstrap then
     require('packer').sync()
