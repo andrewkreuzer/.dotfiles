@@ -311,6 +311,11 @@ _G.packer_plugins = {
     path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
   },
+  ["vim-table-mode"] = {
+    loaded = true,
+    path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/vim-table-mode",
+    url = "https://github.com/dhruvasagar/vim-table-mode"
+  },
   ["vim-terraform"] = {
     loaded = true,
     path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/vim-terraform",

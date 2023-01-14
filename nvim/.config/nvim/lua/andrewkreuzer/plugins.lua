@@ -73,6 +73,7 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope-fzy-native.nvim'
 
   -- Utils
+  use 'dhruvasagar/vim-table-mode'
   use 'mbbill/undotree'
   use { 'lewis6991/gitsigns.nvim' }
   use { 'kyazdani42/nvim-tree.lua',
