@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/ayu-vim",
     url = "https://github.com/ayu-theme/ayu-vim"
   },
+  ["cellular-automaton.nvim"] = {
+    loaded = true,
+    path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/cellular-automaton.nvim",
+    url = "https://github.com/eandrju/cellular-automaton.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -144,11 +149,6 @@ _G.packer_plugins = {
     path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
-  ["diffview.nvim"] = {
-    loaded = true,
-    path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/diffview.nvim",
-    url = "https://github.com/sindrets/diffview.nvim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -205,11 +205,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  neogit = {
-    loaded = true,
-    path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/neogit",
-    url = "https://github.com/TimUntersberger/neogit"
   },
   ["nvim-cmp"] = {
     loaded = true,
