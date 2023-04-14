@@ -9,6 +9,7 @@ export PATH="$PATH:/opt/android-studio/bin"
 export PATH="$PATH:/opt/idea/bin"
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools/"
 export PATH=$PATH:$HOME/.pulumi/bin
+export PATH="$PATH:$HOME/personal/android/bin"
 #export PATH="$PATH:$HOME/dev/pebble/pebble-sdk-4.5-linux64/bin"
 #export PATH="$PATH:/opt/miniconda3/bin"
 

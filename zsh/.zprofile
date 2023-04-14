@@ -13,9 +13,9 @@ export ZDOTDIR="$HOME/.config/zsh"
 export ZSHRC="$ZDOTDIR/.zshrc"
 
 # gpg-agent
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpg-connect-agent updatestartuptty /bye > /dev/null
+# export GPG_TTY="$(tty)"
+# export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+# gpg-connect-agent updatestartuptty /bye > /dev/null
 
 # gpgconf --launch gpg-agent
 # ^ this doesn't work for some reason???
