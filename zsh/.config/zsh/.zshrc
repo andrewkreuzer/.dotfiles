@@ -7,14 +7,11 @@
 
 # Shared history
 setopt share_history
-export HISTFILE="$HOME/.cache/zsh/history"
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/zsh/zsh_shortcuts" ] && source "$HOME/.config/zsh/zsh_shortcuts"
 [ -f "$HOME/.config/zsh/zsh_alias" ] && source "$HOME/.config/zsh/zsh_alias"
 
-autoload -Uz compinit
-compinit -d $HOME/.cache/zsh/zcompdump
 zstyle ':completion:*' completer _complete _correct _approximate
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -31,12 +28,15 @@ zstyle ':completion:*' file-sort access
 zstyle :compinstall filename '/home/akreuzer/.config/zsh/.zshrc'
 setopt LIST_PACKED
 setopt COMPLETE_IN_WORD
+autoload -Uz compinit
+compinit -d $HOME/.cache/zsh/zcompdump
 
-fpath=(~/.config/zsh/completion/zsh-completions/src/ $fpath)
-source ~/.config/zsh/completion/zsh-autosuggestions/zsh-autosuggestions.zsh
-source <(kubectl completion zsh)
-autoload -U +X bashcompinit && bashcompinit
+autoload -U +X bashcompinit && bashcompinit -d $HOME/.cache/zsh/bashcompdump
 complete -o nospace -C /usr/local/bin/terraform terraform
+fpath=(~/.config/zsh/completion/zsh-completions/src/ $fpath)
+. ~/.config/zsh/completion/zsh-autosuggestions/zsh-autosuggestions.zsh
+. <(kubectl completion zsh)
+. <(flux completion zsh)
 
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
@@ -51,15 +51,14 @@ bindkey "$key[Down]" history-beginning-search-forward-end
 
 bindkey -v
 
-# Load zoxide
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
+function hist() {
+  echo $1 >> $HOME/.cache/history.log
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec hist
 
 # Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform

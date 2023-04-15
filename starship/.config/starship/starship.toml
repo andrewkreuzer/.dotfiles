@@ -25,6 +25,7 @@ format = "[$read_only]($read_only_style) [$path](bold cyan) "
 truncation_symbol = "../"
 
 [git_branch]
+symbol = " "
 style = "bold green"
 
 [git_status]
@@ -45,30 +46,69 @@ style = "bold red"
 cherry_pick = " [ picking](bold red) "
 merge = " [ merging](bold 105) "
 
-# [aws]
-# format = "in [$symbol$region]($style)"
-# symbol = " "
-
-[rust]
-symbol = " "
-
-[terraform]
-symbol = "ﲳ "
-
-[golang]
-symbol = " "
-style = "bold bright-blue"
-
-[nodejs]
-symbol = " "
-
-[python]
-symbol = " "
-style = "bold bright-green"
-
-[package]
-symbol = " "
-
 [status]
 format = '[ \[$status\]]($style) '
 disabled = false
+
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[python]
+symbol = " "
+
+[spack]
+symbol = "🅢 "
+
+[rust]
+symbol = " "

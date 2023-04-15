@@ -3,14 +3,12 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-nnoremap <leader>r :so $MYVIMRC<CR>
-
-
 " nnoremap <Up> <C-y>
 " nnoremap <Down> <C-e>
 " Switch between tabs
 nnoremap <Right> gt
 nnoremap <Left>  gT
+nnoremap <leader>tc :tabclose<CR>
 
 " Change cwd to buffer
 nnoremap <Leader>dj :lcd %:p:h<CR>

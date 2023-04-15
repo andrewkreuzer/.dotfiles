@@ -1,8 +1,9 @@
-alias ls='ls -G'
+alias ls='ls -C --group-directories-first --color=auto'
+alias lsa='ls -a'
 
-alias evr='nvim $VIMCONFIGDIR/init.vim'
+alias evr='nvim $VIMCONFIGDIR/init.lua'
 alias ezr='nvim $DOTFILES/zsh/.config/zsh/.zshrc'
-alias edots='nvim $DOTFILES'
+alias edots='cd $DOTFILES && nvim .'
 
 # change from alacritty $TERM
 alias ssh='TERM=xterm-256color ssh'
@@ -11,8 +12,9 @@ alias ssh='TERM=xterm-256color ssh'
 alias hs='history | grep --color'
 alias notes='nvim ~/Documents/notes'
 
-# ecr login
-alias mobials/ecr/login='aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 456969868172.dkr.ecr.us-east-1.amazonaws.com'
+alias gen-pass='openssl rand -base64 32'
 
 # TheFuck alias
 eval $(thefuck --alias)
+
+alias flux-helm-suspended="kubectl get --all-namespaces helmreleases.helm.toolkit.fluxcd.io -o json | jq -r '.items[] | select(.spec.suspend==true) | [.metadata.name,.spec.suspend] | @tsv'"
