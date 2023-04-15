@@ -16,7 +16,7 @@ for d in ${dirs[@]}; do
     sync $d croft-encrypt:$d -L \
         --password-command="echo $RCLONE_CONFIG_PASS" \
         --config="/home/akreuzer/.config/rclone/rclone.conf" \
-        --exclude-from="/home/akreuzer/dotfiles/systemd/root/backups/exclude.txt"
+        --exclude-from="/home/akreuzer/.dotfiles/systemd_root/root/backups/exclude.txt"
 
     duration=$SECONDS
     message="$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed for $d"
