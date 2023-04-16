@@ -1,0 +1,10 @@
+
+# /etc/docker/daemon.json
+{
+    "storage-driver": "zfs",
+    "storage-opts": [
+        "zfs.fsname=rpool/docker"
+    ]
+}
+
+zfs set com.sun:auto-snapshot=false rpool/docker
