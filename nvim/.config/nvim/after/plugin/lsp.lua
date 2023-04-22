@@ -2,6 +2,7 @@ local lsp = require('lsp-zero').preset({})
 local lspkind = require('lspkind')
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
+local luasnip = require('luasnip')
 
 local function on_attach(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')

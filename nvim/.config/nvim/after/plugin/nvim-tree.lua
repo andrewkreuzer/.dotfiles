@@ -1,7 +1,7 @@
 require('nvim-tree').setup({
   view = {
-    adaptive_size = true,
-  }
+    centralize_selection = true,
+  },
 })
 
 local function open_nvim_tree()
