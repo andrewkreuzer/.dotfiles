@@ -1,7 +1,7 @@
-local lsp = require('lsp-zero')
+local lsp = require('lsp-zero').preset({})
 local lspkind = require('lspkind')
-
-lsp.preset('recommended')
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
 
 local function on_attach(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -12,7 +12,7 @@ local function on_attach(client, bufnr)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>k', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wl', function()
@@ -52,7 +52,42 @@ local get_bufnrs = function()
   return vim.tbl_keys(bufs)
 end
 
-lsp.setup_nvim_cmp({
+local has_words_before = function()
+  if vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt' then
+    return false
+  end
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+end
+
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ['<CR>'] = cmp.mapping.confirm({select = false}),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+  }),
   preselect = 'none',
   completion = {
     completeopt = 'menu,menuone,noinsert,noselect'
@@ -92,6 +127,7 @@ lsp.setup_nvim_cmp({
 
 lsp.setup()
 
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 require("rust-tools").setup({
   server = {
     on_attach = on_attach,
@@ -105,6 +141,7 @@ cmp.setup.filetype('gitcommit', {
     { name = 'git' },
     { name = 'buffer' },
     { name = 'luasnip' },
+    { name = 'copilot' },
   })
 })
 

@@ -27,17 +27,35 @@ return require('packer').startup(function(use)
       {'petertriho/cmp-git'},
       {'lukas-reineke/cmp-rg'},
       {'andersevenrud/compe-tmux'},
-      {'github/copilot.vim'},
-      {'hrsh7th/cmp-copilot'},
 
       -- Snippets
       {'L3MON4D3/LuaSnip'},
       {'rafamadriz/friendly-snippets'},
     }
   }
+
   use {
     'tzachar/cmp-tabnine',
     run='./install.sh',
+  }
+
+  use {'zbirenbaum/copilot-cmp',
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end,
+    requires = {
+      {'zbirenbaum/copilot.lua',
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+          require("copilot").setup({
+            suggestion = { enabled = false },
+            panel = { enabled = false },
+          })
+        end,
+      }
+    }
   }
 
   use { 'nvim-treesitter/nvim-treesitter',
