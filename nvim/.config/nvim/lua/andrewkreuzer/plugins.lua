@@ -7,6 +7,9 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  -- Dev plugins
+  use '/home/akreuzer/personal/garmin/monkeyc.nvim'
+
   use {
     'VonHeikemen/lsp-zero.nvim',
     requires = {
@@ -34,10 +37,10 @@ return require('packer').startup(function(use)
     }
   }
 
-  use {
-    'tzachar/cmp-tabnine',
-    run='./install.sh',
-  }
+  -- use {
+  --   'tzachar/cmp-tabnine',
+  --   run='./install.sh',
+  -- }
 
   use {'zbirenbaum/copilot-cmp',
     after = { "copilot.lua" },
@@ -97,6 +100,10 @@ return require('packer').startup(function(use)
   use { 'kyazdani42/nvim-tree.lua',
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
   use({ "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
@@ -106,7 +113,7 @@ return require('packer').startup(function(use)
 
    -- Themes
    use 'gruvbox-community/gruvbox'
-   use 'ayu-theme/ayu-vim'
+   use 'Shatur/neovim-ayu'
    use 'drewtempelmeyer/palenight.vim'
 
    use 'eandrju/cellular-automaton.nvim'

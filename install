@@ -1,9 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DISTRO=$1
 
-FOLDERS="alacritty bin bspwm gnupg nvim polybar rclone spotifyd starship sxhkd systemd_user tmux x zsh"
+FOLDERS="alacritty bin bspwm gnupg nvim polybar rclone spotifyd starship sxhkd systemd_user tmux x zsh waybar"
 
+git submodule update --init --recursive
 pushd $DOTFILES
 for folder in $FOLDERS;do
   stow -D $folder

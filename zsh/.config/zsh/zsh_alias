@@ -14,7 +14,4 @@ alias notes='nvim ~/Documents/notes'
 
 alias gen-pass='openssl rand -base64 32'
 
-# TheFuck alias
-eval $(thefuck --alias)
-
 alias flux-helm-suspended="kubectl get --all-namespaces helmreleases.helm.toolkit.fluxcd.io -o json | jq -r '.items[] | select(.spec.suspend==true) | [.metadata.name,.spec.suspend] | @tsv'"

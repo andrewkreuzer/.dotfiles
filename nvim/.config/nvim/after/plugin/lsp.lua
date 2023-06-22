@@ -4,6 +4,10 @@ local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 local luasnip = require('luasnip')
 
+require("mason").setup({
+   PATH = "append",
+})
+
 local function on_attach(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -43,6 +47,8 @@ lsp.ensure_installed({
   'html',
   'graphql',
   'gopls',
+  'rust_analyzer',
+  'lua_ls',
 })
 
 local get_bufnrs = function()
@@ -103,7 +109,7 @@ cmp.setup({
           luasnip = "LuaSnip",
           buffer = "Buffer",
           path = "Path",
-          cmp_tabnine = "TabNine",
+          -- cmp_tabnine = "TabNine",
           copilot = "Copilot",
           tmux = "Tmux",
         }),
@@ -117,7 +123,7 @@ cmp.setup({
     { name = 'luasnip' },
     { name = 'buffer', option = { get_bufnrs = get_bufnrs } },
     { name = 'path' },
-    { name = 'cmp_tabnine' },
+    -- { name = 'cmp_tabnine' },
     { name = 'copilot' },
     { name = 'tmux', options = {
       all_panes = true,
@@ -128,7 +134,6 @@ cmp.setup({
 
 lsp.setup()
 
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 require("rust-tools").setup({
   server = {
     on_attach = on_attach,

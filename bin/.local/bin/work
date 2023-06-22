@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+brave --class=braveWork --profile-directory="Profile 1";
+alacritty --class=alacrittyWork -e ssh w -t tmux new-session -A -s work;

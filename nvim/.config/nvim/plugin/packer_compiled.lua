@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["ayu-vim"] = {
-    loaded = true,
-    path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/ayu-vim",
-    url = "https://github.com/ayu-theme/ayu-vim"
-  },
   ["cellular-automaton.nvim"] = {
     loaded = true,
     path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/cellular-automaton.nvim",
@@ -123,11 +118,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/cmp-rg",
     url = "https://github.com/lukas-reineke/cmp-rg"
-  },
-  ["cmp-tabnine"] = {
-    loaded = true,
-    path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/cmp-tabnine",
-    url = "https://github.com/tzachar/cmp-tabnine"
   },
   cmp_luasnip = {
     loaded = true,
@@ -199,6 +189,11 @@ _G.packer_plugins = {
     path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["markdown-preview.nvim"] = {
     loaded = false,
     needs_bufread = false,
@@ -215,6 +210,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["monkeyc.nvim"] = {
+    loaded = true,
+    path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/monkeyc.nvim",
+    url = "/home/akreuzer/personal/garmin/monkeyc.nvim"
+  },
+  ["neovim-ayu"] = {
+    loaded = true,
+    path = "/home/akreuzer/.local/share/nvim/site/pack/packer/start/neovim-ayu",
+    url = "https://github.com/Shatur/neovim-ayu"
   },
   ["nvim-cmp"] = {
     loaded = true,

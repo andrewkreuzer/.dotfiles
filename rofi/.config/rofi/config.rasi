@@ -1,0 +1,16 @@
+@theme "nord"
+configuration {
+  terminal:           "alacritty";
+  cycle:              false;
+  hide-scrollbar:     true;
+  disable-history:    false;
+  opacity:            0.8;
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}

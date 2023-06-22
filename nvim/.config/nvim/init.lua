@@ -12,7 +12,7 @@ opt('mouse', 'a')
 opt('number')
 opt('relativenumber')
 opt('wrap', false)
-opt('hlsearch', false)
+opt('hlsearch', true)
 opt('incsearch')
 opt('ignorecase')
 opt('hidden')
@@ -30,12 +30,9 @@ opt('autoindent')
 opt('list')
 cmd([[ filetype plugin on ]])
 
-opt('termguicolors')
-cmd([[let ayucolor='dark' ]])
-cmd([[colorscheme ayu]])
-
 vim.g.mapleader = [[ ]]
 
+vim.opt.termguicolors = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"

@@ -1,0 +1,26 @@
+{
+  "custom/launcher": {
+    "format": "  ",
+    "on-click": "~/.config/rofi/launchers/type-1/launcher.sh",
+    "tooltip": false
+  },
+  "custom/dot": {
+    "format": " ",
+    "tooltip": false
+  },
+  "custom/left-arrw": {
+    "format": ">",
+    "tooltip": false
+  },
+  "custom/right-arrw": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/arrow-dec": {
+    "format": "  ",
+    "tooltip": false
+  },
+  "custom/space": {
+    "format": "     "
+  },
+}
