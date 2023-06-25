@@ -30,6 +30,10 @@ local function on_attach(client, bufnr)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
+require'lspconfig'.ocamllsp.setup{}
+require'lspconfig'.lua_ls.setup{}
+require'lspconfig'.nil_ls.setup{}
+
 lsp.on_attach(on_attach)
 
 lsp.ensure_installed({
@@ -47,8 +51,6 @@ lsp.ensure_installed({
   'html',
   'graphql',
   'gopls',
-  'rust_analyzer',
-  'lua_ls',
 })
 
 local get_bufnrs = function()
