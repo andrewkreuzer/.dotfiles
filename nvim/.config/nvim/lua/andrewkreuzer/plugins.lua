@@ -94,6 +94,13 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope-fzy-native.nvim'
 
   -- Utils
+  use 'rcarriga/nvim-notify'
+  use {
+    'folke/noice.nvim',
+    requires = {
+      "MunifTanjim/nui.nvim"
+    }
+  }
   use 'dhruvasagar/vim-table-mode'
   use 'mbbill/undotree'
   use { 'lewis6991/gitsigns.nvim' }
