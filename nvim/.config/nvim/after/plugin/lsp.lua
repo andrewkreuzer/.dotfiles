@@ -30,9 +30,19 @@ local function on_attach(client, bufnr)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-require'lspconfig'.ocamllsp.setup{}
-require'lspconfig'.lua_ls.setup{}
-require'lspconfig'.nil_ls.setup{}
+require 'lspconfig'.ocamllsp.setup {}
+require 'lspconfig'.lua_ls.setup {}
+require 'lspconfig'.nil_ls.setup {}
+
+
+lsp.format_on_save({
+  servers = {
+    ['lua_ls']        = { 'lua' },
+    ['rust_analyzer'] = { 'rust' },
+    ['terraformls']   = { 'terraform' },
+    ['gopls']         = { 'go' },
+  }
+})
 
 lsp.on_attach(on_attach)
 
