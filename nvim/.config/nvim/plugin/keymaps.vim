@@ -3,8 +3,8 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" nnoremap <Up> <C-y>
-" nnoremap <Down> <C-e>
+nnoremap <Up> <C-y>
+nnoremap <Down> <C-e>
 " Switch between tabs
 nnoremap <Right> gt
 nnoremap <Left>  gT
@@ -16,7 +16,7 @@ nnoremap <Leader>dj :lcd %:p:h<CR>
 nnoremap <Leader>djj :lcd %:p:h:h<CR>
 
 " Search highlighting cancel
-" nnoremap <Esc><Esc> :silent! nohls<cr>
+nnoremap <Esc><Esc> :silent! nohls<cr>
 
 " Run the last command
 nnoremap <leader><leader>c :<up>
