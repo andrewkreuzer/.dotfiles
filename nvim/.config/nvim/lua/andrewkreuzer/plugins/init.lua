@@ -49,26 +49,26 @@ M.setup = function(nix)
     'L3MON4D3/LuaSnip',
     'rafamadriz/friendly-snippets',
 
-    -- {
-    --   'zbirenbaum/copilot-cmp',
-    --   after = { "copilot.lua" },
-    --   config = function()
-    --     require("copilot_cmp").setup()
-    --   end,
-    --   dependencies = {
-    --     {
-    --       'zbirenbaum/copilot.lua',
-    --       cmd = "Copilot",
-    --       event = "InsertEnter",
-    --       config = function()
-    --         require("copilot").setup({
-    --           suggestion = { enabled = false },
-    --           panel = { enabled = false },
-    --         })
-    --       end,
-    --     }
-    --   }
-    -- },
+    {
+      'zbirenbaum/copilot-cmp',
+      after = { "copilot.lua" },
+      config = function()
+        require("copilot_cmp").setup()
+      end,
+      dependencies = {
+        {
+          'zbirenbaum/copilot.lua',
+          cmd = "Copilot",
+          event = "InsertEnter",
+          config = function()
+            require("copilot").setup({
+              suggestion = { enabled = false },
+              panel = { enabled = false },
+            })
+          end,
+        }
+      }
+    },
 
     {
       'nvim-treesitter/nvim-treesitter',
@@ -197,10 +197,12 @@ M.setup = function(nix)
   }
 
   if not nix then
-    for plugin in nonNix do
+    for k, v in pairs(nonNix) do
       table.insert(plugins, plugin)
     end
   end
 
   require("lazy").setup(plugins)
 end
+
+return M
