@@ -20,7 +20,7 @@ end
 
 local M = {}
 
-M.setup = function()
+M.setup = function(nix)
   local lsp = require('lsp-zero').preset({})
 
   require 'lspconfig'.ocamllsp.setup {}
@@ -39,6 +39,27 @@ M.setup = function()
     }
   })
 
+  if not nix then
+    require("mason-lspconfig").setup {
+      ensure_installed = {
+        'html',
+        'cssls',
+        'tsserver',
+        'pyright',
+        'terraformls',
+        'tflint',
+        'jsonls',
+        'svelte',
+        'bashls',
+        'dockerls',
+        'yamlls',
+        'html',
+        'graphql',
+        'gopls',
+      }
+    }
+  end
+
   vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     pattern = { "*.mc" },
     callback = function(_)
@@ -51,7 +72,6 @@ M.setup = function()
   })
 
   lsp.on_attach(on_attach)
-
   lsp.setup()
 
   require("rust-tools").setup({
