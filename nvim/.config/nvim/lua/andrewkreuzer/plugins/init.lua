@@ -197,8 +197,8 @@ M.setup = function(nix)
   }
 
   if not nix then
-    for k, v in pairs(nonNix) do
-      table.insert(plugins, plugin)
+    for _, v in pairs(nonNix) do
+      table.insert(plugins, v)
     end
   end
 
