@@ -22,6 +22,7 @@ local M = {}
 
 M.setup = function(nix)
   local lsp = require('lsp-zero').preset({})
+  lsp.extend_lspconfig()
 
   require 'lspconfig'.ocamllsp.setup {}
   require 'lspconfig'.nil_ls.setup {}
