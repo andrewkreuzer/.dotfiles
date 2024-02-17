@@ -1,6 +1,8 @@
 local M = {}
+local harpoon = require('andrewkreuzer.plugins.harpoon')
+local neotree = require('andrewkreuzer.plugins.neotree')
 
-M.setup = function(nix)
+M.install = function()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
   if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -12,6 +14,11 @@ M.setup = function(nix)
       lazypath,
     })
   end
+  return lazypath
+end
+
+M.setup = function(nix)
+  local lazypath = M.install()
   vim.opt.rtp:prepend(lazypath)
 
   local plugins = {
@@ -72,7 +79,8 @@ M.setup = function(nix)
 
     {
       'nvim-treesitter/nvim-treesitter',
-      build = ':TSUpdate'
+      build = ':TSUpdate',
+      config = require('andrewkreuzer.plugins.treesitter').setup,
     },
     'nvim-treesitter/playground',
 
@@ -98,23 +106,16 @@ M.setup = function(nix)
     'tpope/vim-fugitive',
     -- 'tpope/vim-rsi'
 
-    -- Twitch Rivals
     {
       'ThePrimeagen/harpoon',
-      config = require('andrewkreuzer.plugins.harpoon').setup
+      config = harpoon.setup,
+      keys = harpoon.keys,
     },
     'nvim-lua/plenary.nvim',
     'nvim-lua/popup.nvim',
     {
       'nvim-telescope/telescope.nvim',
-      keys = {
-        { '<leader>sw', "<cmd>:lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>" },
-        { '<leader>ss', "<cmd>:lua require('telescope.builtin').live_grep()<CR>" },
-        { '<leader>sg', "<cmd>:lua require('telescope.builtin').git_files()<CR>" },
-        { '<Leader>sf', "<cmd>:lua require('telescope.builtin').find_files({hidden=true})<CR>" },
-        { '<leader>pb', "<cmd>:lua require('telescope.builtin').buffers()<CR>" },
-        { '<leader>vh', "<cmd>:lua require('telescope.builtin').help_tags()<CR>" },
-      },
+      keys = require('andrewkreuzer.plugins.telescope').keys,
       dependencies = { 'nvim-lua/plenary.nvim' }
     },
     'nvim-telescope/telescope-fzy-native.nvim',
@@ -127,7 +128,9 @@ M.setup = function(nix)
     {
       "nvim-neo-tree/neo-tree.nvim",
       branch = "v3.x",
-      config = require('andrewkreuzer.plugins.neotree').setup,
+      config = neotree.setup,
+      keys = neotree.keys,
+      lazy = false,
       dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
@@ -184,7 +187,6 @@ M.setup = function(nix)
     },
 
   }
-
 
   local nonNix = {
     'williamboman/mason-lspconfig.nvim',

@@ -1,5 +1,3 @@
-local nmap = require('andrewkreuzer.utils').nmap
-
 local M = {}
 
 M.setup = function()
@@ -11,5 +9,9 @@ M.setup = function()
     },
   })
 end
+
+M.keys = {
+  { '<C-n>', "<cmd>:Neotree<CR>" },
+}
 
 return M
