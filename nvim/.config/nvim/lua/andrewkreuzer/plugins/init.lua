@@ -167,9 +167,7 @@ M.setup = function(nix)
       "folke/noice.nvim",
       event = "VeryLazy",
       config = require('andrewkreuzer.plugins.notifications').setup,
-      opts = {
-        -- add any options here
-      },
+      keys = require('andrewkreuzer.plugins.notifications').keys,
       dependencies = {
         "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",

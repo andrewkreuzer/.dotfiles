@@ -2,6 +2,9 @@ local M = {}
 
 M.setup = function()
   require("noice").setup({
+    messages = {
+      view = "mini",
+    },
     lsp = {
       -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
       override = {
@@ -20,5 +23,9 @@ M.setup = function()
     },
   })
 end
+
+M.keys = {
+  { '<leader>nc', '<cmd>lua require("noice").cmd("dismiss")<CR>' },
+}
 
 return M
