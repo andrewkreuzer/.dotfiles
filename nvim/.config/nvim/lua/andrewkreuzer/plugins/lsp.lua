@@ -24,6 +24,7 @@ M.setup = function(nix)
   local lsp = require('lsp-zero').preset({})
   lsp.extend_lspconfig()
 
+  require 'lspconfig'.gopls.setup {}
   require 'lspconfig'.ocamllsp.setup {}
   require 'lspconfig'.nil_ls.setup {}
   local lua_opts = lsp.nvim_lua_ls()
