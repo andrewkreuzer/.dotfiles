@@ -1,6 +1,5 @@
 local M = {}
 local harpoon = require('andrewkreuzer.plugins.harpoon')
-local neotree = require('andrewkreuzer.plugins.neotree')
 
 M.install = function()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -133,25 +132,21 @@ M.setup = function(nix)
     'dhruvasagar/vim-table-mode',
     'mbbill/undotree',
     {
-      "nvim-neo-tree/neo-tree.nvim",
-      branch = "v3.x",
-      config = neotree.setup,
-      keys = neotree.keys,
+      'stevearc/oil.nvim',
       lazy = false,
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons",
-        "MunifTanjim/nui.nvim",
-        {
-          's1n7ax/nvim-window-picker',
-          name = 'window-picker',
-          event = 'VeryLazy',
-          version = '2.*',
-          config = function()
-            require 'window-picker'.setup()
-          end,
-        }
-      }
+      opts = {
+        float = {
+          padding = 20,
+          max_width = 120,
+        },
+        view_options = {
+          show_hidden = true,
+        },
+      },
+      keys = {
+        { '<leader>o', "<cmd>Oil --float .<CR>" },
+      },
+      dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     {
       'lewis6991/gitsigns.nvim',
@@ -200,23 +195,15 @@ M.setup = function(nix)
       end
     },
 
-  }
-
-  local nonNix = {
-    'williamboman/mason-lspconfig.nvim',
+    { 'williamboman/mason-lspconfig.nvim', enabled = not nix, },
     {
       'williamboman/mason.nvim',
+      enabled = not nix,
       config = function()
         require("mason").setup({})
       end
     },
   }
-
-  if not nix then
-    for _, v in pairs(nonNix) do
-      table.insert(plugins, v)
-    end
-  end
 
   require("lazy").setup(plugins)
 end
