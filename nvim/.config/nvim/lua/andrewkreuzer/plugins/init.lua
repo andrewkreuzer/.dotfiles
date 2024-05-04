@@ -93,13 +93,6 @@ M.setup = function(nix)
     -- Languages
     'hashivim/vim-terraform',
     'simrat39/rust-tools.nvim',
-    {
-      'ray-x/go.nvim',
-      config = function()
-        require('go').setup()
-      end
-    },
-    'ray-x/guihua.lua',
     'leafgarland/typescript-vim',
     'pangloss/vim-javascript',
     'jparise/vim-graphql',
@@ -145,15 +138,16 @@ M.setup = function(nix)
       },
       keys = {
         { '<leader>o', "<cmd>Oil --float .<CR>" },
+        { '<leader>-', "<cmd>Oil --float %:h<CR>" },
       },
       dependencies = { "nvim-tree/nvim-web-devicons" },
     },
-    {
-      'lewis6991/gitsigns.nvim',
-      config = function()
-        require('gitsigns').setup()
-      end
-    },
+    -- {
+    --   'lewis6991/gitsigns.nvim',
+    --   config = function()
+    --     require('gitsigns').setup()
+    --   end
+    -- },
     {
       'nvim-lualine/lualine.nvim',
       config = require('andrewkreuzer.plugins.lualine').setup

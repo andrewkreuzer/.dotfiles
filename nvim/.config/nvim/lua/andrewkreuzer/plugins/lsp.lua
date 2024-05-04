@@ -21,22 +21,23 @@ end
 local M = {}
 
 M.setup = function(nix)
+  local lspconfig = require('lspconfig')
   local lsp = require('lsp-zero').preset({})
   lsp.extend_lspconfig()
 
-  require 'lspconfig'.gopls.setup {}
-  require 'lspconfig'.pyright.setup {}
-  require 'lspconfig'.ocamllsp.setup {}
-  require 'lspconfig'.nil_ls.setup {}
+  lspconfig.gopls.setup {}
+  -- lspconfig.pyright.setup {}
+  lspconfig.ocamllsp.setup {}
+  lspconfig.nil_ls.setup {}
+  lspconfig.terraformls.setup {}
   local lua_opts = lsp.nvim_lua_ls()
-  require('lspconfig').lua_ls.setup(lua_opts)
+  lspconfig.lua_ls.setup(lua_opts)
 
   lsp.format_on_save({
     servers = {
       ['lua_ls']        = { 'lua' },
       ['rust_analyzer'] = { 'rust' },
       ['terraformls']   = { 'terraform' },
-      ['gopls']         = { 'go' },
       ['black']         = { 'py' },
       ['tsserver']      = { 'javascript', 'typescript' },
     }
