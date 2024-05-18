@@ -1,5 +1,6 @@
 local cmp = require('cmp')
 local luasnip = require('luasnip')
+local luasnipVSCode = require('luasnip/loaders/from_vscode')
 
 local has_words_before = function()
   if vim.api.nvim_get_option_value('buftype', {}) == 'prompt' then
@@ -21,7 +22,7 @@ end
 local M = {}
 
 M.setup = function()
-  require("luasnip.loaders.from_vscode").lazy_load()
+  luasnipVSCode.lazy_load()
   cmp.setup({
     snippet = {
       expand = function(args)
