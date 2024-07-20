@@ -28,10 +28,27 @@ M.setup = function(nix)
   lspconfig.gopls.setup {}
   -- lspconfig.pyright.setup {}
   lspconfig.ocamllsp.setup {}
+  lspconfig.tsserver.setup {}
   lspconfig.nil_ls.setup {}
   lspconfig.terraformls.setup {}
   local lua_opts = lsp.nvim_lua_ls()
   lspconfig.lua_ls.setup(lua_opts)
+  lspconfig.jdtls.setup(lua_opts)
+  lspconfig.yamlls.setup {
+    settings = {
+      yaml = {
+        schemas = {
+          kubernetes = "*.yaml",
+          ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+          ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+          ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/**/*.{yml,yaml}",
+          ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+          ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+          ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+        },
+      },
+    },
+  }
 
   lsp.format_on_save({
     servers = {
@@ -40,6 +57,7 @@ M.setup = function(nix)
       ['terraformls']   = { 'terraform' },
       ['black']         = { 'py' },
       ['tsserver']      = { 'javascript', 'typescript' },
+      ['yamlls']        = { 'yaml' },
     }
   })
 
