@@ -1,7 +1,3 @@
-local cmp = require('cmp')
-local luasnip = require('luasnip')
-local luasnipVSCode = require('luasnip/loaders/from_vscode')
-
 local has_words_before = function()
   if vim.api.nvim_get_option_value('buftype', {}) == 'prompt' then
     return false
@@ -22,6 +18,11 @@ end
 local M = {}
 
 M.setup = function()
+  local cmp = require('cmp')
+  local luasnip = require('luasnip')
+  local luasnipVSCode = require('luasnip/loaders/from_vscode')
+  local lspkind = require('lspkind')
+
   luasnipVSCode.lazy_load()
   cmp.setup({
     snippet = {
@@ -68,7 +69,38 @@ M.setup = function()
           all_panes = true,
         }
       },
-    })
+    }),
+    formatting = {
+      fields = { "kind", "abbr", "menu" },
+      format = lspkind.cmp_format({
+        with_text = true,
+        menu = ({
+          buffer = "(Buffer)",
+          nvim_lsp = "(LSP)",
+          luasnip = "(LuaSnip)",
+          path = "(Path)",
+          copilot = "(Copilot)",
+          tmux = "(Tmux)",
+        }),
+        before = function(entry, vim_item)
+          if vim.tbl_contains({ 'path' }, entry.source.name) then
+            local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
+            if icon then
+              vim_item.kind = icon
+              vim_item.menu = "    (" .. hl_group .. ")"
+              vim_item.kind_hl_group = hl_group
+              return vim_item
+            end
+          end
+          local kind = require('lspkind').cmp_format({ mode = "symbol" })(entry, vim_item)
+          if entry.source.name == "copilot" then
+            kind.kind = ''
+          end
+          kind.kind = kind.kind .. ' '
+          return kind
+        end
+      }),
+    }
   })
 
   cmp.setup.filetype('gitcommit', {
@@ -81,6 +113,9 @@ M.setup = function()
   })
 
   cmp.setup.cmdline({ '/', '?' }, {
+    view = {
+      entries = { name = 'wildmenu', separator = '|' }
+    },
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
       { name = 'rg' },

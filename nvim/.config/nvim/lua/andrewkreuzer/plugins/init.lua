@@ -75,8 +75,9 @@ M.setup = function(nix)
           event = "InsertEnter",
           config = function()
             require("copilot").setup({
-              suggestion = { enabled = false },
-              panel = { enabled = false },
+              filetypes = {
+                gitcommit = true,
+              }
             })
           end,
         }
@@ -92,7 +93,11 @@ M.setup = function(nix)
 
     -- Languages
     'hashivim/vim-terraform',
-    'simrat39/rust-tools.nvim',
+    {
+      'mrcjkb/rustaceanvim',
+      version = '^5',
+      lazy = false,
+    },
     'leafgarland/typescript-vim',
     'pangloss/vim-javascript',
     'jparise/vim-graphql',

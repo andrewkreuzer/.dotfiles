@@ -28,7 +28,7 @@ M.setup = function(nix)
   lspconfig.gopls.setup {}
   -- lspconfig.pyright.setup {}
   lspconfig.ocamllsp.setup {}
-  lspconfig.tsserver.setup {}
+  lspconfig.ts_ls.setup {}
   lspconfig.nil_ls.setup {}
   lspconfig.terraformls.setup {}
   local lua_opts = lsp.nvim_lua_ls()
@@ -56,7 +56,7 @@ M.setup = function(nix)
       ['rust_analyzer'] = { 'rust' },
       ['terraformls']   = { 'terraform' },
       ['black']         = { 'py' },
-      ['tsserver']      = { 'javascript', 'typescript' },
+      ['ts_ls']         = { 'javascript', 'typescript' },
       ['yamlls']        = { 'yaml' },
     }
   })
@@ -66,7 +66,7 @@ M.setup = function(nix)
       ensure_installed = {
         'html',
         'cssls',
-        'tsserver',
+        'ts_ls',
         'pyright',
         'terraformls',
         'tflint',
@@ -95,13 +95,6 @@ M.setup = function(nix)
 
   lsp.on_attach(on_attach)
   lsp.setup()
-
-  require("rust-tools").setup({
-    server = {
-      on_attach = on_attach,
-      capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-    },
-  })
 end
 
 return M
