@@ -1,5 +1,9 @@
 local M = {}
 
+M.config = function()
+  require('telescope').load_extension('fzf')
+end
+
 M.keys = {
   { '<leader>sw', "<cmd>:lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>" },
   { '<leader>ss', "<cmd>:lua require('telescope.builtin').live_grep()<CR>" },

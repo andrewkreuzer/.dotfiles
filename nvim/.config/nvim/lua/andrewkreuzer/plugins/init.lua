@@ -21,12 +21,11 @@ M.setup = function(nix)
   vim.opt.rtp:prepend(lazypath)
 
   local plugins = {
-    {
-      'VonHeikemen/lsp-zero.nvim',
-      config = require('andrewkreuzer.plugins.lsp').setup
-    },
     -- LSP Support
-    'neovim/nvim-lspconfig',
+    {
+      'neovim/nvim-lspconfig',
+      config = require('andrewkreuzer.plugins.lsp').setup,
+    },
     'onsails/lspkind-nvim',
 
     -- Autocompletion
@@ -92,15 +91,21 @@ M.setup = function(nix)
     'nvim-treesitter/playground',
 
     -- Languages
-    'hashivim/vim-terraform',
     {
       'mrcjkb/rustaceanvim',
       version = '^5',
       lazy = false,
     },
+    'hashivim/vim-terraform',
     'leafgarland/typescript-vim',
     'pangloss/vim-javascript',
     'jparise/vim-graphql',
+    {
+      'ziglang/zig.vim',
+      config = function()
+        vim.g.zig_fmt_autosave = 0
+      end
+    },
 
 
     -- Mr. T. Pope
@@ -120,14 +125,17 @@ M.setup = function(nix)
     {
       'nvim-telescope/telescope.nvim',
       keys = require('andrewkreuzer.plugins.telescope').keys,
+      config = require('andrewkreuzer.plugins.telescope').config,
       dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    'nvim-telescope/telescope-fzy-native.nvim',
+    {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      build = 'make',
+      enabled = not nix,
+    },
 
     -- Utils
     'nvim-tree/nvim-web-devicons',
-    'rcarriga/nvim-notify',
-    'dhruvasagar/vim-table-mode',
     'mbbill/undotree',
     {
       'stevearc/oil.nvim',
@@ -158,17 +166,6 @@ M.setup = function(nix)
       config = require('andrewkreuzer.plugins.lualine').setup
     },
     {
-      "folke/noice.nvim",
-      event = "VeryLazy",
-      config = require('andrewkreuzer.plugins.notifications').setup,
-      keys = require('andrewkreuzer.plugins.notifications').keys,
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify",
-      }
-    },
-
-    {
       "iamcco/markdown-preview.nvim",
       build = "cd app && npm install",
       init = function() vim.g.mkdp_filetypes = { "markdown" } end,
@@ -194,13 +191,17 @@ M.setup = function(nix)
       end
     },
 
+    {
+      "folke/zen-mode.nvim",
+      keys = {
+        { "<leader>zm", "<cmd>:ZenMode<CR>" }
+      },
+    },
     { 'williamboman/mason-lspconfig.nvim', enabled = not nix, },
     {
       'williamboman/mason.nvim',
       enabled = not nix,
-      config = function()
-        require("mason").setup({})
-      end
+      opts = {}
     },
   }
 
