@@ -1,5 +1,4 @@
-local nix = true
-local config = require("andrewkreuzer")
+NIX = true
 
-config.enable_monkeyc_treesitter()
-config.start(nix)
+local config = require("config")
+config.setup()
