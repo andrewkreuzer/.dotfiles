@@ -4,16 +4,7 @@ return {
   'tpope/vim-obsession',
   'tpope/vim-fugitive',
 
-  -- 'nvim-lua/plenary.nvim',
-  -- 'nvim-lua/popup.nvim',
-
   'nvim-tree/nvim-web-devicons',
-  -- {
-  --   'lewis6991/gitsigns.nvim',
-  --   config = function()
-  --     require('gitsigns').setup()
-  --   end
-  -- },
   {
     'eandrju/cellular-automaton.nvim',
     lazy = true,
@@ -25,7 +16,7 @@ return {
   {
     "folke/zen-mode.nvim",
     keys = {
-      { "<leader>zm", "<cmd>:ZenMode<CR>" }
+      { "<leader>zm", function() require("zen-mode").toggle() end }
     },
   },
 }

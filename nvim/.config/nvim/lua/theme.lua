@@ -1,2 +1,3 @@
-require('ayu').setup({ mirage = false })
-require('ayu').colorscheme()
+local ayu = require('ayu')
+ayu.setup({ mirage = false })
+ayu.colorscheme()

@@ -1,6 +1,13 @@
 return {
   {
     'hrsh7th/nvim-cmp',
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+      table.insert(opts.sources, {
+        name = "lazydev",
+        group_index = 0,
+      })
+    end,
     config = function()
       local cmp = require('cmp')
       local luasnip = require('luasnip')
@@ -72,6 +79,10 @@ return {
             }
           },
         }),
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered()
+        },
         formatting = {
           fields = { "kind", "abbr", "menu" },
           format = lspkind.cmp_format({
@@ -145,7 +156,7 @@ return {
   {
     'petertriho/cmp-git',
     config = function()
-      require('cmp_git').setup()
+      require('cmp_git').setup({})
     end
   },
   'lukas-reineke/cmp-rg',

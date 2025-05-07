@@ -6,6 +6,7 @@ M.setup = function()
   require('keymaps')
   require('_lazy')
   require('theme')
+  require('terminal')
 end
 
 M.enable_monkeyc_treesitter = function()

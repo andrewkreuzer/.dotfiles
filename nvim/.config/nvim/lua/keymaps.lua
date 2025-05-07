@@ -22,17 +22,12 @@ nmap('<Esc><Esc>', ':silent! nohls<cr>')
 
 nmap('<leader>gs', ":G<CR>")
 
-tmap('\\\\', '<C-\\><C-n><CR>')
-
 -- Remove whitespace
 nmap('<leader>sws', ':%s/\\s\\+$//<CR>')
 
--- Try and make sure to not mangle space items
-tmap('<S-Space>', '<Space>')
-tmap('<C-Space>', '<Space>')
-
-vmap('J', ':m >+1<CR>gv=gv')
-vmap('K', ':m <-2<CR>gv=gv')
+-- Move lines up and down
+vmap('J', ':m \'>+1<CR>gv=gv')
+vmap('K', ':m \'<-2<CR>gv=gv')
 
 -- replace currently selected text with
 -- default register without yanking it

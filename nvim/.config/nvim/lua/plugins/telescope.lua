@@ -6,12 +6,12 @@ return {
     end,
 
     keys = {
-      { '<leader>sw', "<cmd>:lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>" },
-      { '<leader>ss', "<cmd>:lua require('telescope.builtin').live_grep()<CR>" },
-      { '<leader>sg', "<cmd>:lua require('telescope.builtin').git_files()<CR>" },
-      { '<Leader>sf', "<cmd>:lua require('telescope.builtin').find_files({hidden=true})<CR>" },
-      { '<leader>pb', "<cmd>:lua require('telescope.builtin').buffers()<CR>" },
-      { '<leader>vh', "<cmd>:lua require('telescope.builtin').help_tags()<CR>" },
+      { '<leader>sw', function() require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') } end},
+      { '<leader>ss', function() require('telescope.builtin').live_grep() end },
+      { '<leader>sg', function() require('telescope.builtin').git_files() end },
+      { '<Leader>sf', function() require('telescope.builtin').find_files({hidden=true}) end },
+      { '<leader>pb', function() require('telescope.builtin').buffers() end },
+      { '<leader>vh', function() require('telescope.builtin').help_tags() end },
     },
     dependencies = { 'nvim-lua/plenary.nvim' }
   }
